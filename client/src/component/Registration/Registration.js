@@ -1,6 +1,6 @@
 // Node modules
 import React, { Component } from "react";
-
+// import axios from "axios";
 // Components
 import Navbar from "../Navbar/Navigation";
 import NavbarAdmin from "../Navbar/NavigationAdmin";
@@ -12,6 +12,8 @@ import "./Registration.css";
 // Contract
 import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
+
+
 
 export default class Registration extends Component {
   constructor(props) {
@@ -41,8 +43,6 @@ export default class Registration extends Component {
       },
     };
   }
-
-  
 
   // refreshing once
   componentDidMount = async () => {
@@ -158,30 +158,39 @@ export default class Registration extends Component {
       .send({ from: this.state.account, gas: 1000000 });
     window.location.reload();
   };*/
-  addEmail = async (id, account) => { 
-    let response = await fetch('http://laravel.election/api/v1/email', { 
-       method: 'POST', 
-       body: JSON.stringify({ 
-          email: id + "@astanait.edu.kz", 
-          account: account, 
-       }), 
-       headers: { 
-          'Content-type': 'application/json; charset=UTF-8', 
-       }, 
-    }); 
-    let data = await response.json(); 
- };
+  handleClick = async () => {
+    await this.submitVoterDetails();
+    await this.registerAsVoter();
+
+  }
+  
   registerAsVoter = async () => {
+   
     await this.state.ElectionInstance.methods
       .registerAsVoter(this.state.voterName, this.state.voterPhone, this.state.voterAge, this.state.voterID)
       .send({ from: this.state.account, gas: 1000000 });
-      this.addEmail(email. account);
+
     window.location.reload();
+
+     // Make a POST request to http://laravel.election/api/v1/email
+
   };
-  handleSubmit = (e) => { 
-    e.preventDefault(); 
-    registerAsVoter(email, account); 
- };
+  
+  submitVoterDetails = async () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: this.state.voterID + "@astanait.edu.kz",
+        account: this.state.account,
+        message: 'Thank you for registering to vote in our election!',
+      })
+    };
+    fetch('http://laravel.election/api/v1/email', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+  };
   render() {
     if (!this.state.web3) {
       return (
@@ -275,14 +284,14 @@ export default class Registration extends Component {
                   <button
                     className="btn-add"
                     disabled={
-                      this.state.voterPhone.length !== 11 ||
+                      this.state.voterPhone.length !== 12 ||
                       this.state.voterAge < 18 ||
                       this.state.voterID.length !== 6 ||
                       this.state.currentVoter.isRegistered ||
                       this.state.currentVoter.isVerified
                     }
         
-                    onClick={this.registerAsVoter}
+                    onClick={this.handleClick}
                   >
                     {this.state.currentVoter.isRegistered
                       ? "Update"
