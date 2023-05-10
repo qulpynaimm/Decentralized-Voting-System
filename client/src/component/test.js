@@ -1,13 +1,30 @@
-import React from "react";
-
-// import FileReader from "./FileReader";
-
-const test = () => {
-  return (
-    <>
-      <h1>Hello this is test page</h1>
-      {/* <FileReader /> */}
-    </>
-  );
-};
-export default test;
+import React, {useState, useEffect} from "react"; 
+ 
+const Test = () => { 
+  const [data, setData] = useState([]); 
+ 
+  const fetchData = async () => { 
+    try { 
+      const response = await fetch('http://laravel.election/api/v1/index'); 
+      const jsonData = await response.json(); 
+      console.log(jsonData); 
+      setData(jsonData); 
+    } catch (error) { 
+      console.error(error); 
+    } 
+  }; 
+   
+  useEffect(() => { 
+    fetchData(); 
+  }, []); 
+   
+  return ( 
+    <div> 
+      {Array.isArray(data) && data.map((item) => ( 
+        <p key={item.email}>{item.email}</p> 
+      ))} 
+    </div> 
+  ); 
+}; 
+ 
+export default Test;

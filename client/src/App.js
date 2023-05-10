@@ -6,7 +6,6 @@ import Home from "./component/Home";
 import Voting from "./component/Voting/Voting";
 import Results from "./component/Results/Results";
 import Registration from "./component/Registration/Registration";
-
 import AddCandidate from "./component/Admin/AddCandidate/AddCandidate";
 import Verification from "./component/Admin/Verification/Verification";
 import test from "./component/test";
@@ -28,15 +27,17 @@ export default class App extends Component {
             <Route exact path="/Results" component={Results} />
             <Route exact path="/Registration" component={Registration} />
             <Route exact path="/Verification" component={Verification} />
-            <Route exact path="/test" component={test} />
             <Route exact path="*" component={NotFound} />
+            <Route exact path="/test" component={test} />
           </Switch>
         </Router>
+        
         <Footer />
       </div>
     );
   }
 }
+
 class NotFound extends Component {
   render() {
     return (

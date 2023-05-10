@@ -10,6 +10,10 @@ import NotInit from "../NotInit";
 // Contract
 import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
+import { abi, NFT_CONTRACT_ADDRESS } from "./constant";
+
+
+
 
 // CSS
 import "./Voting.css";
@@ -33,6 +37,7 @@ export default class Voting extends Component {
         hasVoted: false,
         isVerified: false,
         isRegistered: false,
+        isHasNFT: false,
       },
     };
   }
@@ -94,22 +99,43 @@ export default class Voting extends Component {
       const voter = await this.state.ElectionInstance.methods
         .voterDetails(this.state.account)
         .call();
-      this.setState({
-        currentVoter: {
-          address: voter.voterAddress,
-          name: voter.name,
-          phone: voter.phone,
-          hasVoted: voter.hasVoted,
-          isVerified: voter.isVerified,
-          isRegistered: voter.isRegistered,
-        },
-      });
-
+      
       // Admin account and verification
       const admin = await this.state.ElectionInstance.methods.getAdmin().call();
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
       }
+      
+      const hasNFT = await this.checkNFT();
+      if (hasNFT === true){       
+        //alert("You have the required NFT to continue."); 
+        this.setState({
+          currentVoter: {
+            address: voter.voterAddress,
+            name: voter.name,
+            phone: voter.phone,
+            hasVoted: voter.hasVoted,
+            isVerified: voter.isVerified,
+            isRegistered: voter.isRegistered,
+            isHasNFT: true,
+          },
+        });
+      }
+      else{
+        this.setState({
+          currentVoter: {
+            address: voter.voterAddress,
+            name: voter.name,
+            phone: voter.phone,
+            hasVoted: voter.hasVoted,
+            isVerified: voter.isVerified,
+            isRegistered: voter.isRegistered,
+            isHasNFT: false,
+          },
+        });
+      }
+      
+
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -117,7 +143,19 @@ export default class Voting extends Component {
       );
       console.error(error);
     }
-  };
+  }
+  
+  async checkNFT() {
+    const contractAddress = NFT_CONTRACT_ADDRESS; 
+    const contractABI = abi; 
+    const web3 = this.state.web3;
+    const account = this.state.account;
+  
+    const nftContract = new web3.eth.Contract(contractABI, contractAddress);
+    const balance = await nftContract.methods.balanceOf(account).call();
+  
+    return balance > 0;
+  }  
 
   renderCandidates = (candidate) => {
     const castVote = async (id) => {
@@ -178,7 +216,7 @@ export default class Voting extends Component {
           ) : this.state.isElStarted && !this.state.isElEnded ? (
             <>
               {this.state.currentVoter.isRegistered ? (
-                this.state.currentVoter.isVerified ? (
+                this.state.currentVoter.isHasNFT ? (
                   this.state.currentVoter.hasVoted ? (
                     <div className="container-item success">
                       <div>
@@ -204,7 +242,7 @@ export default class Voting extends Component {
                   )
                 ) : (
                   <div className="container-item attention">
-                    <center>Please wait for admin to verify.</center>
+                    <center>You do not have NFT. Please check your email.</center>
                   </div>
                 )
               ) : (

@@ -207,43 +207,112 @@ export default class Registration extends Component {
           <NotInit />
         ) : (
           <>
-          <div className="registration-page">
-          <img className="figure-icon" alt="" src="/website.png" />
-
-            <b className="registration-form">Registration Form</b>
-            <div className="registration-page-inner">
-              <div className="group-wrapper">
-                <div className="group-wrapper">
-                  <div className="group-container">
-                    <div className="account-address-parent">
-                    <div className="account-address">Account Address</div>
-                    <div className="group-child" />
-                    </div>
-                    <div className="age-parent">
-                <div className="account-address">Age</div>
-                <div className="group-child" />
-              </div>
-              <div className="barcode-parent">
-                <div className="account-address">Barcode</div>
-                <div className="group-child" />
-              </div>
-              <div className="full-name-parent">
-                <div className="full-name">Full Name</div>
-                <div className="group-child" />
-              </div>
-              <div className="phone-number-parent">
-                <div className="phone-number">Phone Number</div>
-                <div className="group-child" />
-              </div>
-              </div>
-              <div className="group-frame">
-              <div className="rectangle-parent">
-                <div className="rectangle-div" />
-                <b className="register">Register</b>
+            <div className="container-item info">
+              <p>Total registered voters: {this.state.voters.length}</p>
+            </div>
+            <div className="container-main">
+              <h3>Registration</h3>
+              <small>Register to vote.</small>
+              <div className="container-item">
+                <form>
+                  <div className="div-li">
+                    <label className={"label-r"}>
+                      Account Address
+                      <input
+                        className={"input-r"}
+                        type="text"
+                        value={this.state.account}
+                        style={{ width: "400px" }}
+                      />{" "}
+                    </label>
+                  </div>
+                  <div className="div-li">
+                    <label className={"label-r"}>
+                      Name
+                      <input
+                        className={"input-r"}
+                        type="text"
+                        placeholder="eg. Ava"
+                        value={this.state.voterName}
+                        onChange={this.updateVoterName}
+                      />{" "}
+                    </label>
+                  </div>
+                  <div className="div-li">
+                    <label className={"label-r"}>
+                      Phone number <span style={{ color: "tomato" }}>*</span>
+                      <input
+                        className={"input-r"}
+                        type="text"
+                        placeholder="eg. 9841234567"
+                        value={this.state.voterPhone}
+                        onChange={this.updateVoterPhone}
+                      />
+                    </label>
+                  </div>
+                  <div className="div-li">
+                    <label className={"label-r"}>
+                      Age <span style={{ color: "tomato" }}>*</span>
+                      <input
+                        className={"input-r"}
+                        type="number"
+                        placeholder="eg. 20"
+                        value={this.state.voterAge}
+                        onChange={this.updateVoterAge}
+                      />
+                    </label>
+                  </div>
+                  <div className="div-li">
+                    <label className={"label-r"}>
+                      Barcode <span style={{ color: "tomato" }}>*</span>
+                      <input
+                        className={"input-r"}
+                        type="text"
+                        placeholder="eg. 201358"
+                        value={this.state.voterID}
+                        onChange={this.updateVoterID}
+                      />
+                    </label>
+                  </div>
+                  <p className="note">
+                    <span style={{ color: "tomato" }}> Note: </span>
+                    <br /> Make sure your account address and Phone number are
+                    correct. <br /> Admin might not approve your account if the
+                    provided Phone number nub does not matches the account
+                    address registered in admins catalogue.
+                  </p>
+                  <button
+                    className="btn-add"
+                    disabled={
+                      this.state.voterPhone.length !== 12 ||
+                      this.state.voterAge < 18 ||
+                      this.state.voterID.length !== 6 ||
+                      this.state.currentVoter.isRegistered ||
+                      this.state.currentVoter.isVerified
+                    }
+        
+                    onClick={this.handleClick}
+                  >
+                    {this.state.currentVoter.isRegistered
+                      ? "Update"
+                      : "Register"}
+                  </button>
+                  {this.state.voterPhone.length === 11 &&
+                  this.state.voterAge >= 18 &&
+                  this.state.voterID.length === 6 &&
+                  !this.state.currentVoter.isRegistered &&  
+                  !this.state.currentVoter.isVerified ? null : (
+                    <p style={{color: "red"}}>
+                      <p> {this.state.voterPhone.length !== 11 ? "Please enter a valid phone number." : ""}</p>
+                      <p>{this.state.voterAge < 18 ? "You must be at least 18 years old to register." : ""}</p>
+                      <p>{this.state.voterID.length !== 6 ? "Please enter your barcode from university." : ""}</p>
+                      <p>{this.state.currentVoter.isRegistered ? "You are already registered." : ""}</p>
+                      <p>{this.state.currentVoter.isVerified ? "You are already verified." : ""}</p>
+                    </p>
+                    )}
+                </form>
               </div>
             </div>
-                  
-              
             <div
               className="container-main"
               style={{
@@ -266,19 +335,14 @@ export default class Registration extends Component {
                 {loadAllVoters(this.state.voters)}
               </div>
             ) : null}
-            </div>
-            </div>
-            </div>
-            </div>
           </>
-          
         )}
       </>
     );
   }
 }
 export function loadCurrentVoter(voter, isRegistered) {
-/*  return (
+  return (
     <>
       <div
         className={"container-item " + (isRegistered ? "success" : "attention")}
@@ -324,7 +388,7 @@ export function loadCurrentVoter(voter, isRegistered) {
         </table>
       </div>
     </>
-  );*/
+  );
 }
 export function loadAllVoters(voters) {
   const renderAllVoters = (voter) => {

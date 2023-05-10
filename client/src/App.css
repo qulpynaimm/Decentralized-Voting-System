@@ -16,6 +16,13 @@ code {
   border-radius: 6px;
   border: 1px solid;
 }
+.registration-form {
+  position: absolute;
+  top: 107px;
+  left: 85px;
+  display: inline-block;
+  width: 686px;
+}
 
 .container-main {
   background-color: none;
