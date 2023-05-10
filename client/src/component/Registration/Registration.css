@@ -3,6 +3,21 @@
 .div-li {
   display: inline-grid;
 }
+input {
+  background-color: #001124;
+  border: none;
+  border-bottom: 2px solid white;
+  width: 120%;
+  color: white;
+  font-size: 20px;
+  padding: 12px;
+  transition: border-bottom-color 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-bottom-color: white;
+}
 
 .label-r {
   margin: 0.1em;
@@ -122,9 +137,9 @@
   height: 57px;
 }
 .register {
-  position: absolute;
-  top: 4px;
-  left: 195px;
+  position: relative;
+  top: -20px;
+  left: 164px;
   letter-spacing: 0.02em;
   display: inline-block;
   width: 193.24px;

@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import Navbar from "../Navbar/Navigation";
 import NavbarAdmin from "../Navbar/NavigationAdmin";
 import NotInit from "../NotInit";
-
+import Register from './website.png';
 // CSS
 import "./Registration.css";
 
@@ -208,8 +208,7 @@ export default class Registration extends Component {
         ) : (
           <>
           <div className="registration-page">
-          <img className="figure-icon" alt="" src="/website.png" />
-
+          <img className="figure-icon" alt="" src={Register} />
             <b className="registration-form">Registration Form</b>
             <div className="registration-page-inner">
               <div className="group-wrapper">
@@ -217,29 +216,59 @@ export default class Registration extends Component {
                   <div className="group-container">
                     <div className="account-address-parent">
                     <div className="account-address">Account Address</div>
+                    <br></br>
+                    <input type = "text" class = "address" value={this.state.account}></input>
                     <div className="group-child" />
                     </div>
                     <div className="age-parent">
                 <div className="account-address">Age</div>
+                <br></br>
+                <input type = "number" class = "age"  
+                        placeholder="eg. 20"
+                        value={this.state.voterAge}
+                        onChange={this.updateVoterAge}></input>
                 <div className="group-child" />
               </div>
               <div className="barcode-parent">
                 <div className="account-address">Barcode</div>
+                <br></br>
+                <input type = "text" class = "barcode" 
+                        placeholder="eg. 201358"
+                        value={this.state.voterID}
+                        onChange={this.updateVoterID} ></input>
                 <div className="group-child" />
               </div>
               <div className="full-name-parent">
                 <div className="full-name">Full Name</div>
+                <br></br>
+                <input type="text" class = "name" 
+                        placeholder="eg. Aruzhan"
+                        value={this.state.voterName}
+                        onChange={this.updateVoterName}></input>
                 <div className="group-child" />
               </div>
               <div className="phone-number-parent">
                 <div className="phone-number">Phone Number</div>
+                <br></br>
+                <input type="text" class="phone" 
+                        placeholder="eg. +7 777 789 8998"
+                        value={this.state.voterPhone}
+                        onChange={this.updateVoterPhone} ></input>
                 <div className="group-child" />
               </div>
               </div>
               <div className="group-frame">
               <div className="rectangle-parent">
                 <div className="rectangle-div" />
-                <b className="register">Register</b>
+                <b className="register" 
+                disabled={
+                  this.state.voterPhone.length !== 12 ||
+                  this.state.voterAge < 18 ||
+                  this.state.voterID.length !== 6 ||
+                  this.state.currentVoter.isRegistered ||
+                  this.state.currentVoter.isVerified
+                }
+                onClick={this.handleClick} >Register</b>
               </div>
             </div>
                   
