@@ -10,20 +10,8 @@ a {
   text-decoration: none;
   color: white;
 }
-nav {
-  display: flex;
-  height: 11vh;
-  background: tomato;
-  justify-content: space-around;
-  position: sticky;
-  top: 0;
-  align-items: center;
-}
-nav .header {
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
+
+
 nav .header:hover {
   cursor: pointer;
 }
@@ -52,45 +40,7 @@ nav .burger-menu {
 .nav-active {
   color: black;
 }
-.buttons-child,
-.buttons-item {
-  position: absolute;
-  top: 0;
-  border-radius: 14px;
-  width: 234px;
-  height: 59px;
-  cursor: pointer;
-}
-.buttons-child {
-  left: 0;
-  background-color: #0160c8;
-}
-.buttons-item {
-  left: 270px;
-  background-color: #e2eef4;
-}
-.read-more {
-  position: absolute;
-  top: 14px;
-  left: 315px;
-}
-.buttons,
-.head {
-  position: absolute;
-  width: 504px;
-  height: 59px;
-}
-.buttons {
-  top: 0;
-  left: 0;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-.head {
-  top: 700px;
-  left: 752px;
-  color: #0160c8;
-  font-family: Outfit;
-}
+
 .about,
 .go-to-vote,
 .how-to-vote {

@@ -1,0 +1,117 @@
+.line {
+    position: absolute;
+    top: 18px;
+    left: 162px;
+    width: 7px;
+    height: 668px;
+  }
+  .features1 {
+    position: absolute;
+    top: 571px;
+    left: 0;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+  }
+  .backed-by-ethereum,
+  .secured-by-256 {
+    position: absolute;
+    top: 10px;
+    left: 141px;
+  }
+  .backed-by-ethereum {
+    top: 143px;
+  }
+  .easy-to-use,
+  .verifiable-transactions {
+    position: absolute;
+    top: 271px;
+    left: 141px;
+  }
+  .easy-to-use {
+    top: 389px;
+  }
+  .cheaper-than-ballot,
+  .faster-voting-process {
+    position: absolute;
+    top: 516px;
+    left: 141px;
+  }
+  .faster-voting-process {
+    top: 640px;
+  }
+  .icon,
+  .lock-icon {
+    position: absolute;
+    height: 74px;
+  }
+  .lock-icon {
+    top: 0;
+    left: 0;
+    width: 83px;
+    object-fit: cover;
+  }
+  .icon {
+    top: 133px;
+    left: 4.94px;
+    width: 73.12px;
+    overflow: hidden;
+  }
+  .approved-delivery-icon {
+    position: absolute;
+    top: 262px;
+    left: 4.94px;
+    width: 72.13px;
+    height: 73px;
+    object-fit: cover;
+  }
+  .hand-cursor-icon,
+  .low-price-icon,
+  .time-span-icon {
+    position: absolute;
+    top: 379px;
+    left: 3.95px;
+    width: 74.11px;
+    height: 75px;
+    object-fit: cover;
+  }
+  .low-price-icon,
+  .time-span-icon {
+    top: 507px;
+    left: 4.94px;
+    width: 72.13px;
+    height: 73px;
+  }
+  .time-span-icon {
+    top: 630px;
+    width: 73.12px;
+    height: 74px;
+  }
+  .features2,
+  .vector-parent {
+    position: absolute;
+    height: 704px;
+  }
+  .features2 {
+    top: 0;
+    left: 225px;
+    width: 569px;
+    font-size: 25px;
+    color: #010029;
+  }
+  .vector-parent {
+    top: 160px;
+    left: 195px;
+    width: 794px;
+  }
+  .features {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 115px;
+    color: black;
+    font-family: "DM Serif Display";
+  }
+  

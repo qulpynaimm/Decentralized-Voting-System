@@ -202,7 +202,6 @@ export default class Registration extends Component {
     }
     return (
       <>
-        {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         {!this.state.isElStarted && !this.state.isElEnded ? (
           <NotInit />
         ) : (
