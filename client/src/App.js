@@ -8,11 +8,13 @@ import Results from "./component/Results/Results";
 import Registration from "./component/Registration/Registration";
 import AddCandidate from "./component/Admin/AddCandidate/AddCandidate";
 import Verification from "./component/Admin/Verification/Verification";
-//import Features from "./component/Features/Features";
+import Features from "./component/Features/Features";
+import About from "./component/About/About";
+import Instructions from "./component/Instructions/Instructions";
+import Rules from "./component/Rules/Rules";
 import test from "./component/test";
 // import StartEnd from "./component/Admin/StartEnd/StartEnd";
 
-import Footer from "./component/Footer/Footer";
 
 import "./App.css";
 
@@ -23,11 +25,15 @@ export default class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/AddCandidate" component={AddCandidate} />
-            <Route exact path="/Voting" component={Voting} />
-            <Route exact path="/Results" component={Results} />
-            <Route exact path="/Registration" component={Registration} />
-            <Route exact path="/Verification" component={Verification} />
+            <Route exact path="/addCandidate" component={AddCandidate} />
+            <Route exact path="/voting" component={Voting} />
+            <Route exact path="/results" component={Results} />
+            <Route exact path="/registration" component={Registration} />
+            <Route exact path="/verification" component={Verification} />
+            <Route exact path="/features" component={Features} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/instructions" component={Instructions} />
+            <Route exact path="/rules" component={Rules} />
             <Route exact path="*" component={NotFound} />
             <Route exact path="/test" component={test} />
           </Switch>

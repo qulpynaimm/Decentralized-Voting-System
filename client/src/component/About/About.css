@@ -1,0 +1,45 @@
+.white_line {
+    position: absolute;
+    top: 18px;
+    left: 162px;
+    width: 7px;
+    height: 668px;
+  }
+  .about1 {
+    position: absolute;
+    top: 490px;
+    left: 0;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+  }
+  .an-online-voting {
+    margin: 0;
+  }
+  .an-online-voting-container {
+    position: absolute;
+    top: 21px;
+    left: 221px;
+    font-size: 40px;
+    text-align: justify;
+    display: inline-block;
+    width: 924px;
+  }
+  .vector-parent {
+    position: absolute;
+    top: 178px;
+    left: 147px;
+    width: 1145px;
+    height: 668px;
+  }
+  .about {
+    position: relative;
+    background-color: #001124;
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 115px;
+    color: white;
+    font-family: "DM Serif Display";
+  }
+  

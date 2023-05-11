@@ -1,7 +1,6 @@
 // Node modules
 import React, { Component } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 
 // Components
 import Navbar from "./Navbar/Navigation";

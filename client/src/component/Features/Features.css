@@ -39,24 +39,24 @@
   .faster-voting-process {
     top: 640px;
   }
-  .icon,
-  .lock-icon {
+  .icon2,
+  .icon1 {
     position: absolute;
     height: 74px;
   }
-  .lock-icon {
+  .icon1 {
     top: 0;
     left: 0;
     width: 83px;
     object-fit: cover;
   }
-  .icon {
+  .icon2 {
     top: 133px;
     left: 4.94px;
     width: 73.12px;
     overflow: hidden;
   }
-  .approved-delivery-icon {
+  .icon3 {
     position: absolute;
     top: 262px;
     left: 4.94px;
@@ -64,9 +64,9 @@
     height: 73px;
     object-fit: cover;
   }
-  .hand-cursor-icon,
-  .low-price-icon,
-  .time-span-icon {
+  .icon4,
+  .icon5,
+  .icon6 {
     position: absolute;
     top: 379px;
     left: 3.95px;
@@ -74,14 +74,14 @@
     height: 75px;
     object-fit: cover;
   }
-  .low-price-icon,
-  .time-span-icon {
+  .icon5,
+  .icon6 {
     top: 507px;
     left: 4.94px;
     width: 72.13px;
     height: 73px;
   }
-  .time-span-icon {
+  .icon6 {
     top: 630px;
     width: 73.12px;
     height: 74px;

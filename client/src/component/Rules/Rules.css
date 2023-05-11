@@ -1,0 +1,91 @@
+.you-as-being {
+    margin: 0;
+  }
+  .stay-in-the {
+    margin-bottom: 0;
+  }
+  .stay-in-the-frame-of-your-came {
+    margin: 0;
+    padding-left: 29px;
+  }
+  .you-as-being-container {
+    position: absolute;
+    top: 41px;
+    left: 9px;
+  }
+  .this-election-is {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 22px;
+    font-family: Tienne;
+  }
+  .rules-child {
+    position: absolute;
+    top: 41px;
+    left: 4px;
+    background-color: transparent;
+    border: 3px solid #015fc7;
+    box-sizing: border-box;
+    width: 979px;
+    height: 557px;
+  }
+  .rules-item {
+    position: absolute;
+    top: 612px;
+    left: 10px;
+    background-color: #c4c4c4;
+    width: 23px;
+    height: 21px;
+  }
+  .i-understand-and {
+    position: absolute;
+    top: 607px;
+    left: 48px;
+    font-size: 21px;
+    font-family: "DM Serif Display";
+  }
+  .rules1 {
+    position: absolute;
+    top: 146px;
+    left: 229px;
+    width: 983px;
+    height: 636px;
+    font-size: inherit;
+    color: black;
+    font-family: inherit;
+  }
+  .rectangle-div,
+  .rules-inner {
+    position: absolute;
+    top: 809px;
+    left: 1064px;
+    background-color: #015fc7;
+    width: 148px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .rectangle-div {
+    left: 890px;
+  }
+  .cancel,
+  .proceed {
+    position: absolute;
+    top: 814px;
+    left: 1092px;
+  }
+  .cancel {
+    left: 926px;
+  }
+  .rules {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 22px;
+    color: white;
+    font-family: Tienne;
+  }
+  
