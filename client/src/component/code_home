@@ -16,7 +16,6 @@ import Election from "../contracts/Election.json";
 
 // CSS
 import "./Home.css";
-import Slogan from './slogan.png';
 
 // const buttonRef = React.createRef();
 export default class Home extends Component {
@@ -128,24 +127,45 @@ export default class Home extends Component {
     return (
       <>
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-        <div className="body">
-      <div className="frame">
-        <div className="be-a-part-container">
-          <p className="be-a-part">Be a part of decision</p>
-          <p className="vote-today">Vote Today</p>
+        <div className="container-main">
+          <div className="container-item center-items info">
+            Your Account: {this.state.account}
+          </div>
+          {!this.state.elStarted & !this.state.elEnded ? (
+            <div className="container-item info">
+              <center>
+                <h3>The election has not been initialize.</h3>
+                {this.state.isAdmin ? (
+                  <p>Set up the election.</p>
+                ) : (
+                  <p>Please wait..</p>
+                )}
+              </center>
+            </div>
+          ) : null}
         </div>
-        <div className="buttons">
-          <div className="buttons-child"  />
-          <div className="buttons-item"  />
-          <b className="read-more">READ MORE</b>
-          <b className="register">REGISTER</b>
-        </div>
-      </div>
-      <img className="slogan" alt="" src={Slogan}/>
-      </div>
         {this.state.isAdmin ? (
           <>
             <this.renderAdminHome />
+          </>
+        ) : this.state.elStarted ? (
+          <>
+            <UserHome el={this.state.elDetails} />
+          </>
+        ) : !this.state.isElStarted && this.state.isElEnded ? (
+          <>
+            <div className="container-item attention">
+              <center>
+                <h3>The Election ended.</h3>
+                <br />
+                <Link
+                  to="/Results"
+                  style={{ color: "black", textDecoration: "underline" }}
+                >
+                  See results
+                </Link>
+              </center>
+            </div>
           </>
         ) : null}
       </>
@@ -264,7 +284,7 @@ export default class Home extends Component {
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div>
             ) : this.state.elStarted ? (
               <UserHome el={this.state.elDetails} />
             ) : null}
@@ -279,7 +299,7 @@ export default class Home extends Component {
             />
           </form>
         </div>
-      ); 
+      );
     };
     return <AdminHome />;
   };
