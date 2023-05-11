@@ -56,12 +56,12 @@
 .read-more {
   position: absolute;
   top: 34px;
-  left: 337px;
+  left: 330px;
 }
-.register {
+.reg{
   position: absolute;
-  top: 104px;
-  left: 109px;
+  top: 34px;
+  left: 70px;
   color: white;
 }
 .buttons,

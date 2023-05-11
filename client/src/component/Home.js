@@ -137,9 +137,10 @@ export default class Home extends Component {
         <div className="buttons">
           <div className="buttons-child"  />
           <div className="buttons-item"  />
+          <b className="reg">REGISTER</b>
           <b className="read-more">READ MORE</b>
-          <b className="register">REGISTER</b>
         </div>
+        
       </div>
       <img className="slogan" alt="" src={Slogan}/>
       </div>
