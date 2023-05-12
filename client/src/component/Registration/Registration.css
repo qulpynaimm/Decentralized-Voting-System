@@ -4,7 +4,7 @@
   display: inline-grid;
 }
 input {
-  background-color: #001124;
+  background-color: black;
   border: none;
   border-bottom: 2px solid white;
   width: 120%;
@@ -66,15 +66,6 @@ input:focus {
   letter-spacing: 0.02em;
   width: 234.99px;
   height: 23.61px;
-}
-.group-child {
-  position: absolute;
-  top: 59.51px;
-  left: -0.5px;
-  border-top: 1px solid var(--color-white);
-  box-sizing: border-box;
-  width: 516px;
-  height: 1px;
 }
 .account-address-parent,
 .age-parent,
@@ -174,7 +165,7 @@ input:focus {
 }
 .registration-page {
   position: absolute;
-  background-color: #001124;
+  background-color: black;
   width: 100%;
   height: 1024px;
   overflow: hidden;

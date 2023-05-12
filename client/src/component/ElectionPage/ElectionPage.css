@@ -1,0 +1,97 @@
+.div,
+.elections {
+  position: absolute;
+  top: 310px;
+  left: 1110px;
+}
+.elections {
+  top: 248px;
+  left: 169px;
+  font-size: 32px;
+  color: white;
+}
+.div1,
+.manipur-state-election {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+}
+.div1 {
+  top: 16px;
+  left: 903px;
+}
+.manipur-state-election-parent {
+  position: absolute;
+  top: 320px;
+  left: 169px;
+  border-radius: 5px;
+  background-color: #c4c4c4;
+  width: 1067px;
+  height: 63px;
+}
+.div2 {
+  position: absolute;
+  top: 15px;
+  left: 907px;
+}
+.chhatishgarh-state-election-parent {
+  position: absolute;
+  top: 418px;
+  left: 169px;
+  border-radius: 5px;
+  background-color: #c4c4c4;
+  width: 1067px;
+  height: 63px;
+}
+.div3 {
+  position: absolute;
+  top: 15px;
+  left: 903px;
+}
+.bangluru-state-election-parent {
+  position: absolute;
+  top: 516px;
+  left: 169px;
+  border-radius: 5px;
+  background-color: #c4c4c4;
+  width: 1067px;
+  height: 63px;
+}
+.div4,
+.gurgaon-municipal-corporation {
+  position: absolute;
+  top: 13px;
+  left: 16px;
+}
+.div4 {
+  left: 903px;
+}
+.gurgaon-municipal-corporation-parent {
+  position: absolute;
+  top: 614px;
+  left: 169px;
+  border-radius: 5px;
+  background-color: #c4c4c4;
+  width: 1067px;
+  height: 63px;
+}
+.x2522708 {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: inline-block;
+  width: 194px;
+  height: 41px;
+}
+.electionpage {
+  position: relative;
+  background-color: black;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font-size: 25px;
+  color: black;
+  font-family: "DM Serif Display";
+}

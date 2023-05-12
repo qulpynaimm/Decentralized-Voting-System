@@ -96,22 +96,12 @@
   background-size: cover;
   transform: scaleZ(10);
 }
-.header {
+.header-home {
   position: relative;
   background-color: #000;
-  width: 100%;
-  overflow: hidden;
-  text-align: left;
+  height: 1024px;
   font-size: 25px;
   color: white;
   font-family: "DM Serif Display";
-}
-body{
-  position: relative;
-  background-color: #000;
-  height: fit-content;
-  font-size: 25px;
-  color: white;
-  font-family: "DM Serif Display";
-  overflow: hidden;
+  overflow: hidden;;
 }

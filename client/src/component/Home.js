@@ -127,7 +127,7 @@ export default class Home extends Component {
     return (
       <>
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-        <div className="body">
+        <div className="header-home">
       <div className="frame">
         <div className="be-a-part-container">
           <p className="be-a-part">Be a part of decision</p>

@@ -42,26 +42,28 @@ nav .burger-menu {
 }
 
 .about,
-.go-to-vote,
-.how-to-vote {
+.how-to-vote,
+.how-to-vote2 {
   position: absolute;
   top: 77px;
-  left: 320px;
+  left: 350px;
   cursor: pointer;
   font-size: 25px;
 }
+.how-to-vote2
 .go-to-vote,
 .how-to-vote {
-  left: 500px;
+  left: 600px;
 }
-.go-to-vote {
-  left: 770px;
+.how-to-vote2{
+  left: 950px;
 }
+  
 .topmain {
   position: absolute;
   top: -47px;
   left: 0;
-  width: 1256px;
+  width: 2000px;
   height: 1118px;
   font-family: "DM Serif Display";
 }
@@ -99,11 +101,12 @@ nav .burger-menu {
   width: 5.76%;
   top: 5px;
   right: 89.93%;
-  left: 4.31%;
+  left: 7.31%;
   max-width: 1000%;
   overflow: hidden;
   height: 81px;
   object-fit: cover;
+  transform: scale(1.7);
 }
 .header {
   position: relative;
