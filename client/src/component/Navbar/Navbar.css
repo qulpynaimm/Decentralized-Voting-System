@@ -70,7 +70,7 @@ nav .burger-menu {
 .connect-wallet-button-child {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 4px;
   border-radius: 6px;
   background-color: #015fc7;
   width: 217px;
@@ -84,14 +84,13 @@ nav .burger-menu {
   width: 225px;
   height: 41px;
   font-size: 25px;
-  font-family: "Paytone One", serif;
+  font-family: "Paytone One";
 }
 .connect-wallet-button {
-  border-radius: 8px;
   position: absolute;
   top: 67px;
-  left: 1600px;
-  width: 220px;
+  left: 1750px;
+  width: 225px;
   height: 44px;
   cursor: pointer;
   text-align: center;

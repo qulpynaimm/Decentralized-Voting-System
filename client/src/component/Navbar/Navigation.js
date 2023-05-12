@@ -1,7 +1,6 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from './logo.png';
-import Web3 from 'web3';
 
 
 import "./Navbar.css";
@@ -9,100 +8,16 @@ import Home from "../Home";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [address, setAddress] = useState("");
-  const [buttonWidth, setButtonWidth] = useState("auto");
-  const buttonRef = useRef(null);
-  const connectToMetaMask = async () => {
-    try {
-      if (window.ethereum && window.ethereum.selectedAddress) {
-        // Disconnect from the current account if already connected
-        await window.ethereum.request({
-          method: "wallet_requestPermissions",
-          params: [{ eth_accounts: {} }],
-        });
-      } else {
-        // Request permission to connect the user's MetaMask account
-        await window.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-      }
-    } catch (error) {
-      console.error('Error connecting to MetaMask:', error);
-    }
-  };
-
-  const handleDisconnect = () => {
-    setAddress("");
-    sessionStorage.removeItem("accountAddress");
-  };
-
-  const handleAccountsChanged = (accounts) => {
-    if (accounts.length === 0) {
-      handleDisconnect();
-    } else {
-      setAddress(accounts[0]);
-      sessionStorage.setItem("accountAddress", accounts[0]);
-    }
-  };
-
-  useEffect(() => {
-    const storedAddress = sessionStorage.getItem("accountAddress");
-    if (storedAddress) {
-      setAddress(storedAddress);
-    }
-
-    if (window.ethereum && window.ethereum.selectedAddress) {
-      setAddress(window.ethereum.selectedAddress);
-    }
-
-    window.ethereum.on("accountsChanged", handleAccountsChanged);
-
-    return () => {
-      window.ethereum.off("accountsChanged", handleAccountsChanged);
-    };
-  }, []);
-  useEffect(() => {
-    // Adjust the button's width to match the font size
-    if (buttonRef.current) {
-      const buttonElement = buttonRef.current;
-      const textWidth = buttonElement.scrollWidth;
-      setButtonWidth(`${textWidth}px`);
-    }
-  }, [address]);
-
-  const getShortenedAddress = () => {
-    if (address.length <= 13) {
-      return address;
-    }
-    const start = address.slice(0, 8);
-    const end = address.slice(-5);
-    return `${start}...${end}`;
-  };
   return (
     <nav className="header"> 
     <NavLink to="/">
       <img className="image-icon" onClick={Home} alt="" src={Logo} />
       </NavLink>
     <div className="topmain">
-      <button onClick={connectToMetaMask} className="connect-wallet-button">
+      <NavLink to="/" className="connect-wallet-button">
         <div className="connect-wallet-button-child" />
-        {address ? (
-            <div
-                className="connect-wallet"
-                ref={buttonRef}
-            >
-              <span style={{
-                display: "flex",
-                alignItems: "center",
-                fontFamily: "Paytone One",
-                justifyContent: "left",
-                width: buttonWidth,
-                height: "80%"
-              }}>{getShortenedAddress()}</span></div>
-        ) : (
-            <div className="connect-wallet">Connect Wallet</div>
-        )}
-      </button>
+        <div className="connect-wallet">Connect Wallet</div>
+      </NavLink>
       <NavLink to="/about">
       <div className="about" >
           About
