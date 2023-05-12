@@ -6,10 +6,10 @@ import "./About.css";
 class About extends Component {
     render(){
   return (
-    <div className="about">
+    <div className="about1">
       <div className="vector-parent">
         <img className="white_line" alt="" src={Line} />
-        <div className="about1">About</div>
+        <div className="about2">About</div>
         <div className="an-online-voting-container">
           <p className="an-online-voting"> 
           An online voting system that will replace the 

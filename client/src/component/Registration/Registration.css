@@ -134,16 +134,18 @@ input:focus {
 .rectangle-div {
   border-radius: 20px;
   background-color: #015fc7;
-  height: 57px;
+  height: 80px;
+  left: 50px;
 }
 .register {
-  position: absolute;
-  top: 8px;
-  left: 164px;
+  position: relative;
+  top: 17px;
+  left: 215px;
   letter-spacing: 0.02em;
   display: inline-block;
   width: 193.24px;
   height: 49.33px;
+  font-size: 35px;
 }
 .group-frame,
 .rectangle-parent {

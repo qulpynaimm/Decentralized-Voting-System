@@ -260,15 +260,9 @@ export default class Registration extends Component {
               <div className="rectangle-parent">
                 <div className="rectangle-div" />
                 <b className="register" 
-                disabled={
-                  this.state.voterPhone.length !== 12 ||
-                  this.state.voterAge < 18 ||
-                  this.state.voterID.length !== 6 ||
-                  this.state.currentVoter.isRegistered ||
-                  this.state.currentVoter.isVerified
-                }
                 onClick={this.handleClick} >Register</b>
               </div>
+              
             </div>
                   
               

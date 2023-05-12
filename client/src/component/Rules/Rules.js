@@ -65,7 +65,7 @@ class Rules extends Component{
         </div>
       </div>
       <div className="rules-inner"  />
-      <div className="rectangle-div" />
+      <div className="rectangle-div2" />
       <div className="proceed">Proceed</div>
       <div className="cancel">Cancel</div>
     </div>
