@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 import Navbar from "../Navbar/Navigation";
-import NavbarAdmin from "../Navbar/NavigationAdmin";
 import "./ElectionPage.css";
 
 

@@ -16,6 +16,7 @@ import Election from "../contracts/Election.json";
 // CSS
 import "./Home.css";
 import Slogan from './slogan.png';
+import {NavLink} from "react-router-dom";
 
 // const buttonRef = React.createRef();
 export default class Home extends Component {
@@ -136,7 +137,9 @@ export default class Home extends Component {
         <div className="buttons">
           <div className="buttons-child"  />
           <div className="buttons-item"  />
-          <b className="reg">REGISTER</b>
+          <NavLink to="/registration">
+           <b className="reg">REGISTER</b>
+          </NavLink>
           <b className="read-more">READ MORE</b>
         </div>
         

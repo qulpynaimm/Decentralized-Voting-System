@@ -24,12 +24,12 @@ input:focus {
   padding: 0.5em;
   display: block;
 }
-.btn-add {
-  width: 50%;
-  padding: 1em;
-  float: inline-end;
-  margin: 1em;
-}
+/*.btn-add {*/
+/*  width: 50%;*/
+/*  padding: 1em;*/
+/*  float: inline-end;*/
+/*  margin: 1em;*/
+/*}*/
 .note {
   width: 90%;
   padding: 11px;
@@ -128,14 +128,16 @@ input:focus {
   height: 80px;
   left: 50px;
 }
-.register {
+button.register {
+  background-color: #015fc7;
+  border-radius: 20px;
   position: relative;
-  top: 17px;
-  left: 215px;
+  top: 0;
+  left: 50px;
   letter-spacing: 0.02em;
   display: inline-block;
-  width: 193.24px;
-  height: 49.33px;
+  width: 100%;
+  height: 80px;
   font-size: 35px;
 }
 .group-frame,
@@ -174,4 +176,19 @@ input:focus {
   font-size: 64px;
   color: white;
   font-family: Poppins;
+}
+.validation-note {
+  position: absolute;
+  width: 365px;
+  height: 128px;
+  left: 80px;
+  top: 600px;
+
+  font-family: 'DM Serif Display', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: justify;
+
 }

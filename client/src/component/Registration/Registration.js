@@ -186,7 +186,7 @@ export default class Registration extends Component {
         message: 'Thank you for registering to vote in our election!',
       })
     };
-    fetch('http://laravel.election/api/v1/email', requestOptions)
+    fetch('https://k4p72wppjc3ujwfpxw7sdf54e40fsrko.lambda-url.us-east-1.on.aws/api/v1/email', requestOptions)
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.log(error));
@@ -214,33 +214,37 @@ export default class Registration extends Component {
                 <div className="group-wrapper">
                   <div className="group-container">
                     <div className="account-address-parent">
-                    <div className="account-address">Account Address</div>
+                    <div className="account-address" style={{ whiteSpace: 'nowrap' }}>Account Address</div>
                     <br></br>
                     <input type = "text" class = "address" value={this.state.account}></input>
+                      <span style={{ color: this.state.currentVoter.isRegistered ? 'red' : 'inherit',  fontSize: '15px'}}>{this.state.currentVoter.isRegistered ? "You are already registered." : ""}</span>
                     <div className="group-child" />
                     </div>
                     <div className="age-parent">
-                <div className="account-address">Age</div>
+                <div className="account-address"  style={{ whiteSpace: 'nowrap' }}>Age
+                </div>
                 <br></br>
-                <input type = "number" class = "age"  
+                <input type = "number" class = "age"
                         placeholder="eg. 20"
                         value={this.state.voterAge}
                         onChange={this.updateVoterAge}></input>
+                      <span style={{ color: this.state.voterAge < 18 ? 'red' : 'inherit',  fontSize: '15px'}}>{this.state.voterAge < 18 ? "You must be at least 18 years old to register." : ""}</span>
                 <div className="group-child" />
               </div>
-              <div className="barcode-parent">
-                <div className="account-address">Barcode</div>
+                    <div className="barcode-parent">
+                <div className="account-address" style={{ whiteSpace: 'nowrap' }}>Barcode </div>
                 <br></br>
-                <input type = "text" class = "barcode" 
+                <input type = "text" class = "barcode"
                         placeholder="eg. 201358"
                         value={this.state.voterID}
                         onChange={this.updateVoterID} ></input>
+                      <span style={{ color: this.state.voterID.length !==6 ? 'red' : 'inherit',  fontSize: '15px'}}>{this.state.voterID.length !== 6 ? "Please enter your barcode from university." : ""}</span>
                 <div className="group-child" />
               </div>
               <div className="full-name-parent">
-                <div className="full-name">Full Name</div>
+                <div className="full-name" >Full Name</div>
                 <br></br>
-                <input type="text" class = "name" 
+                <input type="text" class = "name"
                         placeholder="eg. Aruzhan"
                         value={this.state.voterName}
                         onChange={this.updateVoterName}></input>
@@ -249,23 +253,32 @@ export default class Registration extends Component {
               <div className="phone-number-parent">
                 <div className="phone-number">Phone Number</div>
                 <br></br>
-                <input type="text" class="phone" 
+                <input type="text" class="phone"
                         placeholder="eg. +7 777 789 8998"
                         value={this.state.voterPhone}
                         onChange={this.updateVoterPhone} ></input>
+                       <span style={{ color: this.state.voterPhone.length !==12 ? 'red' : 'inherit',  fontSize: '15px'}}>{this.state.voterPhone.length !== 12 ? "Please enter a valid phone number." : ""}</span>
                 <div className="group-child" />
               </div>
               </div>
               <div className="group-frame">
               <div className="rectangle-parent">
                 <div className="rectangle-div" />
-                <b className="register" 
-                onClick={this.handleClick} >Register</b>
+                <button className="register"
+                   disabled={
+                       this.state.voterPhone.length !== 12 ||
+                       this.state.voterAge < 18 ||
+                       this.state.voterID.length !== 6 ||
+                       this.state.currentVoter.isRegistered
+                   }
+                onClick={this.handleClick} >{this.state.currentVoter.isRegistered
+                    ? "Update"
+                    : "Register"}</button>
               </div>
-              
+
             </div>
-                  
-              
+
+
             <div
               className="container-main"
               style={{
@@ -279,15 +292,15 @@ export default class Registration extends Component {
                 this.state.currentVoter.isRegistered
               )}
             </div>
-            {this.state.isAdmin ? (
-              <div
-                className="container-main"
-                style={{ borderTop: "1px solid" }}
-              >
-                <small>TotalVoters: {this.state.voters.length}</small>
-                {loadAllVoters(this.state.voters)}
-              </div>
-            ) : null}
+            {/*{this.state.isAdmin ? (*/}
+            {/*  <div*/}
+            {/*    className="container-main"*/}
+            {/*    style={{ borderTop: "1px solid" }}*/}
+            {/*  >*/}
+            {/*    <small>TotalVoters: {this.state.voters.length}</small>*/}
+            {/*    {loadAllVoters(this.state.voters)}*/}
+            {/*  </div>*/}
+            {/*) : null}*/}
             </div>
             </div>
             </div>
@@ -348,55 +361,55 @@ export function loadCurrentVoter(voter, isRegistered) {
     </>
   );*/
 }
-export function loadAllVoters(voters) {
-  const renderAllVoters = (voter) => {
-    return (
-      <>
-        <div className="container-list success">
-          <table>
-            <tr>
-              <th>Account address</th>
-              <td>{voter.address}</td>
-            </tr>
-            <tr>
-              <th>Name</th>
-              <td>{voter.name}</td>
-            </tr>
-            <tr>
-              <th>Phone</th>
-              <td>{voter.phone}</td>
-            </tr>
-            <tr>
-              <th>Age</th>
-              <td>{voter.age}</td>
-            </tr>
-            <tr>
-              <th>Barcode</th>
-              <td>{voter.id}</td>
-            </tr>
-            <tr>
-              <th>Voted</th>
-              <td>{voter.hasVoted ? "True" : "False"}</td>
-            </tr>
-            <tr>
-              <th>Verified</th>
-              <td>{voter.isVerified ? "True" : "False"}</td>
-            </tr>
-            <tr>
-              <th>Registered</th>
-              <td>{voter.isRegistered ? "True" : "False"}</td>
-            </tr>
-          </table>
-        </div>
-      </>
-    );
-  };
-  return (
-    <>
-      <div className="container-item success">
-        <center>List of voters</center>
-      </div>
-      {voters.map(renderAllVoters)}
-    </>
-  );
-}
+// export function loadAllVoters(voters) {
+//   const renderAllVoters = (voter) => {
+//     return (
+//       <>
+//         <div className="container-list success">
+//           <table>
+//             <tr>
+//               <th>Account address</th>
+//               <td>{voter.address}</td>
+//             </tr>
+//             <tr>
+//               <th>Name</th>
+//               <td>{voter.name}</td>
+//             </tr>
+//             <tr>
+//               <th>Phone</th>
+//               <td>{voter.phone}</td>
+//             </tr>
+//             <tr>
+//               <th>Age</th>
+//               <td>{voter.age}</td>
+//             </tr>
+//             <tr>
+//               <th>Barcode</th>
+//               <td>{voter.id}</td>
+//             </tr>
+//             <tr>
+//               <th>Voted</th>
+//               <td>{voter.hasVoted ? "True" : "False"}</td>
+//             </tr>
+//             <tr>
+//               <th>Verified</th>
+//               <td>{voter.isVerified ? "True" : "False"}</td>
+//             </tr>
+//             <tr>
+//               <th>Registered</th>
+//               <td>{voter.isRegistered ? "True" : "False"}</td>
+//             </tr>
+//           </table>
+//         </div>
+//       </>
+//     );
+//   };
+//   return (
+//     <>
+//       <div className="container-item success">
+//         <center>List of voters</center>
+//       </div>
+//       {voters.map(renderAllVoters)}
+//     </>
+//   );
+// }
