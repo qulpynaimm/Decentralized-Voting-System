@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 
-import { elStarted, elEnded, isAdmin ,isElStarted,isElEnded} from "../Home";
 import UserHome from "../UserHome"
 import { Link } from "react-router-dom";
 import "./ElectionPage.css";
@@ -9,12 +8,10 @@ import "./ElectionPage.css";
 
 export default class ElectionPage extends Component {
     render(){
-      const { data } = this.props;
-      const admin = this.props.isAdmin;
+      const {isAdmin, elStarted, elEnded, isElStarted, isElEnded} = this.props;
   return (
-    <>
-    <div>epokfweok{String(admin)}</div>
-    {this.props.isAdmin ? ( <div>Hello</div>) : (<div>bye</div>)}
+    <> 
+    <div>{isAdmin ? (<div>Hello</div>) : (<div>Bye</div>)}</div>
     { !elStarted & !elEnded ? (
       <div className="container-item info">
         <center>
@@ -32,8 +29,7 @@ export default class ElectionPage extends Component {
             <div>test</div>
           </>
         ) : elStarted ? (
-          <>
-          null          </>
+          null
         ) : !isElStarted && isElEnded ? (
           <>
             <div className="container-item attention">

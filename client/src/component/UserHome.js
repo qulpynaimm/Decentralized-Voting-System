@@ -1,29 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+
+import "./ElectionPage/ElectionPage.css";
+
+
 
 function UserHome(props) {
+  const Dropdown = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("Option 1");
+  
+    const handleOptionClick = (option) => {
+      setSelectedOption(option);
+      setIsOpen(false);
+    };
   return (
-    <div>
-      <div className="container-main">
-        <div className="container-list title">
-          <h1>{props.el.electionTitle}</h1>
+    <div className="electionpage">
+      <div className="elections"> Elections:</div>
+        <div className="election_info">
+          <div className="election_name" >{props.el.electionTitle}</div>
+          <div className="div1">{props.el.organizationTitle}</div>
           <br />
-          <center>{props.el.organizationTitle}</center>
-          <table style={{ marginTop: "21px" }}>
-            <tr>
-              <th>admin</th>
-              <td>
-                {props.el.adminName} ({props.el.adminTitle})
-              </td>
-            </tr>
-            <tr>
-              <th>contact</th>
-              <td style={{ textTransform: "none" }}>{props.el.adminEmail}</td>
-            </tr>
-          </table>
         </div>
-      </div>
     </div>
   );
+}
 }
 
 export default UserHome;

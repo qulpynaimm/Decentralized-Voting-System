@@ -13,6 +13,7 @@ import About from "./component/About/About";
 import Instructions from "./component/Instructions/Instructions";
 import Rules from "./component/Rules/Rules";
 import ElectionPage from "./component/ElectionPage/ElectionPage";
+import VotingPanel from "./component/VotingPanel/VotingPanel";
 import test from "./component/test";
 // import StartEnd from "./component/Admin/StartEnd/StartEnd";
 
@@ -35,7 +36,8 @@ export default class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/instructions" component={Instructions} />
             <Route exact path="/rules" component={Rules} />
-            <Route exact path="/elections" component={ElectionPage} />
+            <Route exact path="/elections" component={ElectionPage}  />
+            <Route exact path="/votingpanel" component={VotingPanel}  />
             <Route exact path="*" component={NotFound} />
             <Route exact path="/test" component={test} />
           </Switch>

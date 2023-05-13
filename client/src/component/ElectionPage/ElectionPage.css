@@ -1,26 +1,24 @@
-.div,
+
 .elections {
   position: absolute;
-  top: 310px;
-  left: 1110px;
-}
-.elections {
   top: 248px;
   left: 169px;
   font-size: 32px;
   color: white;
 }
 .div1,
-.manipur-state-election {
+.election_name {
   position: absolute;
   top: 15px;
   left: 16px;
+  text-transform: capitalize;
+  
 }
 .div1 {
   top: 16px;
   left: 903px;
 }
-.manipur-state-election-parent {
+.election_info {
   position: absolute;
   top: 320px;
   left: 169px;
@@ -28,6 +26,10 @@
   background-color: #c4c4c4;
   width: 1067px;
   height: 63px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  cursor: pointer;
 }
 .div2 {
   position: absolute;
@@ -87,11 +89,46 @@
   position: relative;
   background-color: black;
   width: 100%;
-  height: 1024px;
+  height: 1000px;
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   font-size: 25px;
   color: black;
   font-family: "DM Serif Display";
+  justify-content: center;
+  display: inline-block;
+}
+
+.dropdown-header {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.dropdown-header i {
+  float: right;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-option:hover {
+  background-color: #f1f1f1;
+}
+.under{
+  margin-top: 5%;
 }

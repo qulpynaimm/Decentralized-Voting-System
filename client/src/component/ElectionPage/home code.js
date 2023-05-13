@@ -70,8 +70,6 @@ export default class Home extends Component {
       const admin = await this.state.ElectionInstance.methods.getAdmin().call();
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
-        localStorage.setItem("isAdmin",this.state.isAdmin);
-
       }
 
 
@@ -144,7 +142,10 @@ export default class Home extends Component {
       );
     }
     return (
-    <> 
+      <>
+        <ElectionPage isAdmin={String(this.state.isAdmin)} elStarted = {this.state.elStarted} 
+        elEnded = {this.state.elEnded} isElStarted = {this.state.isElStarted} isElEnded = {this.state.isElEnded}/>;
+
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         {!this.state.isAdmin ? (
         <div className="header-home">
@@ -164,9 +165,40 @@ export default class Home extends Component {
       <img className="slogan" alt="" src={Slogan}/>
       </div>
         ) : null }
+      {!this.state.elStarted & !this.state.elEnded ? (
+            <div className="container-item info">
+              <center>
+                <h3>The election has not been initialize.</h3>
+                {this.state.isAdmin ? (
+                  <p>Set up the election.</p>
+                ) : (
+                  <p>Please wait..</p>
+                )}
+              </center>
+            </div>
+          ) : null}
         {this.state.isAdmin ? (
           <>
             <this.renderAdminHome />
+          </>
+        ) : this.state.elStarted ? (
+          <>
+            <UserHome el={this.state.elDetails} />
+          </>
+        ) : !this.state.isElStarted && this.state.isElEnded ? (
+          <>
+            <div className="container-item attention">
+              <center>
+                <h3>The Election ended.</h3>
+                <br />
+                <Link
+                  to="/Results"
+                  style={{ color: "black", textDecoration: "underline" }}
+                >
+                  See results
+                </Link>
+              </center>
+            </div>
           </>
         ) : null}
       </>
@@ -312,5 +344,5 @@ export const elEnded = localStorage.getItem("ElectEnd");
 export const isElStarted = localStorage.getItem("isElectStart");
 export const isElEnded = localStorage.getItem("IsElectEnd");
 
-export const isAdmin = localStorage.getItem("isAdmin");
+export const isAdmin = localStorage.getItem("storage");
 

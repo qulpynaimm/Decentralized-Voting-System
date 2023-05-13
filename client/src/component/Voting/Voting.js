@@ -1,11 +1,12 @@
 // Node modules
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { Link } from "react-router-dom";
 
 // Components
 import Navbar from "../Navbar/Navigation";
 import NavbarAdmin from "../Navbar/NavigationAdmin";
 import NotInit from "../NotInit";
+import UserHome from "../UserHome";
 
 // Contract
 import getWeb3 from "../../getWeb3";
@@ -17,9 +18,12 @@ import { abi, NFT_CONTRACT_ADDRESS } from "./constant";
 
 // CSS
 import "./Voting.css";
+import "../ElectionPage/ElectionPage.css"
+import { isElStarted } from "../Home";
 
 export default class Voting extends Component {
   constructor(props) {
+    
     super(props);
     this.state = {
       ElectionInstance: undefined,
@@ -30,6 +34,7 @@ export default class Voting extends Component {
       candidates: [],
       isElStarted: false,
       isElEnded: false,
+      elDetails:{},
       currentVoter: {
         address: undefined,
         name: null,
@@ -39,8 +44,15 @@ export default class Voting extends Component {
         isRegistered: false,
         isHasNFT: false,
       },
+      showCandidates: false,
     };
   }
+  toggleCandidates = () => {
+    this.setState({ showCandidates: !this.state.showCandidates });
+  };
+
+  // rest of the code ...
+
   componentDidMount = async () => {
     // refreshing once
     if (!window.location.hash) {
@@ -81,6 +93,21 @@ export default class Voting extends Component {
       this.setState({ isElStarted: start });
       const end = await this.state.ElectionInstance.methods.getEnd().call();
       this.setState({ isElEnded: end });
+
+      // Getting election details from the contract
+      const electionDetails = await this.state.ElectionInstance.methods
+      .getElectionDetails()
+      .call();
+      
+      this.setState({
+        elDetails: {
+          adminName: electionDetails.adminName,
+          adminEmail: electionDetails.adminEmail,
+          adminTitle: electionDetails.adminTitle,
+          electionTitle: electionDetails.electionTitle,
+          organizationTitle: electionDetails.organizationTitle,
+        },
+      });
 
       // Loading Candidates details
       for (let i = 1; i <= this.state.candidateCount; i++) {
@@ -135,6 +162,7 @@ export default class Voting extends Component {
         });
       }
       
+      
 
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -172,13 +200,14 @@ export default class Voting extends Component {
         castVote(id);
       }
     };
+    
     return (
+      
       <div className="container-item">
         <div className="candidate-info">
           <h2>
             {candidate.header} <small>#{candidate.id}</small>
           </h2>
-          <p className="slogan">{candidate.slogan}</p>
         </div>
         <div className="vote-btn-container">
           <button
@@ -186,7 +215,7 @@ export default class Voting extends Component {
             className="vote-bth"
             disabled={
               !this.state.currentVoter.isRegistered ||
-              !this.state.currentVoter.isVerified ||
+              !this.state.currentVoter.isHasNFT ||
               this.state.currentVoter.hasVoted
             }
           >
@@ -206,15 +235,17 @@ export default class Voting extends Component {
         </>
       );
     }
-
+    
     return (
       <>
+         
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-        <div>
+        <div className="electionpage">
           {!this.state.isElStarted && !this.state.isElEnded ? (
-            <NotInit />
+            <NotInit isAdmin={this.state.isAdmin}/>
           ) : this.state.isElStarted && !this.state.isElEnded ? (
             <>
+            {this.state.currentVoter.isRegistered ? (this.notification_alert) : null}
               {this.state.currentVoter.isRegistered ? (
                 this.state.currentVoter.isHasNFT ? (
                   this.state.currentVoter.hasVoted ? (
@@ -261,22 +292,37 @@ export default class Voting extends Component {
                   </div>
                 </>
               )}
-              <div className="container-main">
-                <h2>Candidates</h2>
-                <small>Total candidates: {this.state.candidates.length}</small>
+              
+              <div className="election">
                 {this.state.candidates.length < 1 ? (
                   <div className="container-item attention">
                     <center>Not one to vote for.</center>
                   </div>
                 ) : (
                   <>
-                    {this.state.candidates.map(this.renderCandidates)}
-                    <div
-                      className="container-item"
-                      style={{ border: "1px solid black" }}
-                    >
-                      <center>That is all.</center>
+                    {this.state.isElStarted ? (
+            <>
+              <div className="electionpage">
+                <center>
+                <div className="elections"> Elections:</div>
+                  <div className="election_info" onClick={this.toggleCandidates}>
+                  <div className="election_name" > {this.state.elDetails.electionTitle} </div>
+                  <br></br>
+                  
+                  {this.state.showCandidates && (
+                    <>
+                    <div className="under">
+                      <div className = "candidates" >{this.state.candidates.map(this.renderCandidates)}</div>
                     </div>
+                  </>
+                  )}
+                  <div className="div1">{this.state.elDetails.organizationTitle}</div>
+                  <br />
+              </div>
+              </center>
+              </div>
+            </>
+          ) : null }
                   </>
                 )}
               </div>
