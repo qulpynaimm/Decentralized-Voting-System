@@ -43,22 +43,25 @@ nav .burger-menu {
 
 .about,
 .how-to-vote,
-.how-to-vote2 {
+.how-to-vote2,
+.add-candidate{
   position: absolute;
   top: 77px;
   left: 350px;
   cursor: pointer;
   font-size: 25px;
 }
-.how-to-vote2
 .go-to-vote,
-.how-to-vote {
+.how-to-vote{
   left: 600px;
 }
 .how-to-vote2{
   left: 950px;
 }
-  
+.add-candidate{
+  left: 1250px;
+}
+
 .topmain {
   position: absolute;
   top: -47px;
