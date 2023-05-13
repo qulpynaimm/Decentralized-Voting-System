@@ -202,6 +202,7 @@ export default class Registration extends Component {
     }
     return (
       <>
+        {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         {!this.state.isElStarted && !this.state.isElEnded ? (
           <NotInit />
         ) : (
@@ -271,9 +272,7 @@ export default class Registration extends Component {
                        this.state.voterID.length !== 6 ||
                        this.state.currentVoter.isRegistered
                    }
-                onClick={this.handleClick} >{this.state.currentVoter.isRegistered
-                    ? "Update"
-                    : "Register"}</button>
+                onClick={this.handleClick} >Register</button>
               </div>
 
             </div>
