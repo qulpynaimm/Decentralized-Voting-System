@@ -200,9 +200,7 @@ export default class Voting extends Component {
         castVote(id);
       }
     };
-    
     return (
-      
       <div className="container-item">
         <div className="candidate-info">
           <h2>
@@ -245,7 +243,6 @@ export default class Voting extends Component {
             <NotInit isAdmin={this.state.isAdmin}/>
           ) : this.state.isElStarted && !this.state.isElEnded ? (
             <>
-            {this.state.currentVoter.isRegistered ? (this.notification_alert) : null}
               {this.state.currentVoter.isRegistered ? (
                 this.state.currentVoter.isHasNFT ? (
                   this.state.currentVoter.hasVoted ? (
@@ -304,7 +301,7 @@ export default class Voting extends Component {
             <>
               <div className="electionpage">
                 <center>
-                <div className="elections"> Elections:</div>
+                <div className="elections"> Election Information:</div>
                   <div className="election_info" onClick={this.toggleCandidates}>
                   <div className="election_name" > {this.state.elDetails.electionTitle} </div>
                   <br></br>

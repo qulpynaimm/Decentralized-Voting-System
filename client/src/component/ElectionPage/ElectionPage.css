@@ -1,8 +1,8 @@
 
 .elections {
   position: absolute;
-  top: 248px;
-  left: 169px;
+  top: 200px;
+  left: 850px;
   font-size: 32px;
   color: white;
 }
@@ -20,8 +20,8 @@
 }
 .election_info {
   position: absolute;
-  top: 320px;
-  left: 169px;
+  top: 300px;
+  left: 469px;
   border-radius: 5px;
   background-color: #c4c4c4;
   width: 1067px;
@@ -132,3 +132,4 @@
 .under{
   margin-top: 5%;
 }
+
