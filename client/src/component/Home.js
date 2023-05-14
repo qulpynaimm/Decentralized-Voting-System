@@ -18,6 +18,7 @@ import Election from "../contracts/Election.json";
 // CSS
 import "./Home.css";
 import Slogan from './slogan.png';
+import {NavLink} from "react-router-dom";
 import ElectionPage from "./ElectionPage/ElectionPage";
 
 
@@ -156,7 +157,9 @@ export default class Home extends Component {
         <div className="buttons">
           <div className="buttons-child"  />
           <div className="buttons-item"  />
-          <b className="reg">REGISTER</b>
+          <NavLink to="/registration">
+           <b className="reg">REGISTER</b>
+          </NavLink>
           <b className="read-more">READ MORE</b>
         </div>
         
@@ -287,8 +290,6 @@ export default class Home extends Component {
                   </div>
                 </div>
               </div> 
-            ) : this.state.elStarted ? (
-              <UserHome el={this.state.elDetails} />
             ) : null}
             <StartEnd
               elStarted={this.state.elStarted}

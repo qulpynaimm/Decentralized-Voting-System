@@ -43,22 +43,29 @@ nav .burger-menu {
 
 .about,
 .how-to-vote,
-.how-to-vote2 {
+.how-to-vote2,
+.add-candidate{
   position: absolute;
   top: 77px;
   left: 350px;
   cursor: pointer;
   font-size: 25px;
 }
-.how-to-vote2
 .go-to-vote,
-.how-to-vote {
+.how-to-vote{
   left: 600px;
 }
 .how-to-vote2{
   left: 950px;
 }
-  
+.add-candidate{
+  left: 1250px;
+}
+.topmain,
+.image-icon{
+  top: 5%;
+}
+
 .topmain {
   position: absolute;
   top: -47px;
@@ -67,15 +74,7 @@ nav .burger-menu {
   height: 1118px;
   font-family: "DM Serif Display";
 }
-.connect-wallet-button-child {
-  position: absolute;
-  top: 0;
-  left: 4px;
-  border-radius: 6px;
-  background-color: #015fc7;
-  width: 217px;
-  height: 42px;
-}
+
 .connect-wallet {
   position: absolute;
   top: 2px;
@@ -84,15 +83,21 @@ nav .burger-menu {
   width: 225px;
   height: 41px;
   font-size: 25px;
-  font-family: "Paytone One";
+  font-family: "Paytone One", serif;
+  color: white;
 }
 .connect-wallet-button {
+  top: 0;
+  left: 0;
+  border-radius: 6px;
+  background-color: #015fc7;
+  border: none;
   position: absolute;
-  top: 67px;
-  left: 1750px;
-  width: 225px;
+  top: 66px;
+  left: 1600px;
+  width: 220px;
   height: 44px;
-  cursor: pointer;
+  cursor: pointer;  
   text-align: center;
   font-size: 20px;
 }

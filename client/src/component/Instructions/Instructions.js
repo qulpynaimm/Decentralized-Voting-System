@@ -6,12 +6,14 @@ import Icon8 from './icon8.svg';
 import Icon9 from './icon9.svg';
 import Icon10 from './icon10.png';
 import Icon11 from './icon11.svg';
+import Navbar from "../Navbar/Navigation";
 
 
 class Instructions extends Component {
     render(){
   return (
     <div className="steps">
+      <Navbar></Navbar>
       <div className="follow-these-easy-steps-parent">
         <div className="follow-these-easy">Follow these easy steps:</div>
         <div className="steps1">

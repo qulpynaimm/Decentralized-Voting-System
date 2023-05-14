@@ -1,31 +1,44 @@
 
 .elections {
   position: absolute;
-  top: 200px;
-  left: 850px;
-  font-size: 32px;
+  top: 150px;
+  left: 800px;
+  font-size: 42px;
   color: white;
 }
 .div1,
 .election_name {
   position: absolute;
-  top: 15px;
+  top: 23px;
   left: 16px;
+  font-size: 32px;
+  text-align: center;
+  font-style:unset;
   text-transform: capitalize;
-  
+}
+.candidate_info{
+  font-size: 35px;
+  font-family: Roboto;
+  color: black;
+}
+.slogan_info{
+  font-size: 20px;
+  font-style: italic;
 }
 .div1 {
-  top: 16px;
+  font-size: 25px;
+  text-transform: uppercase;
+  top: 25px;
   left: 903px;
 }
 .election_info {
   position: absolute;
-  top: 300px;
+  top: 250px;
   left: 469px;
   border-radius: 5px;
   background-color: #c4c4c4;
   width: 1067px;
-  height: 63px;
+  height: 83px;
   padding: 10px;
   background-color: #f1f1f1;
   border: 1px solid #ddd;
@@ -132,4 +145,6 @@
 .under{
   margin-top: 5%;
 }
-
+.under2{
+  margin-top: 3%;
+}

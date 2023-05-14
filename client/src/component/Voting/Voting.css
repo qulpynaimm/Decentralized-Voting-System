@@ -35,7 +35,7 @@ p {
   float: left;
   margin-left: 1%;
   padding: 17px;
-  background-color: #e5e5e5;
+  background-color: #c4c4c4;
   border-radius: 11px;
 }
 .vote-btn-container {
@@ -50,7 +50,15 @@ p {
 .vote-bth {
   width: 100%;
   height: 55px;
-  font-size: 157%;
+  font-size: 100%;
+  background-color:  #007bff;
+  color: white;
+  border: none;
+  border-radius: 5%;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
 }
 @media all and (max-width: 900px) {
   .candidate-info,
@@ -58,4 +66,36 @@ p {
     width: 100%;
     height: 100%;
   }
+}
+
+.vote-bth:hover {
+  background-color: white;
+  color: blue;
+  border: 2px solid blue;
+}
+
+.vote-bth:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.3);
+}
+
+.vote-bth:active {
+  transform: translateY(1px);
+}
+
+.election_info:hover {
+  background-color: #007bff; /* change background color on hover */
+  color: #fff; /* change text color on hover */
+  border-color: #007bff; /* change border color on hover */
+  cursor: pointer; /* change cursor on hover to indicate clickable */
+}
+
+.election_info:focus {
+  outline: none; /* remove outline on focus to improve accessibility */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* add box shadow on focus */
+}
+
+.election_info:active {
+  background-color: #0069d9; /* change background color on active state */
+  border-color: #0062cc; /* change border color on active state */
 }

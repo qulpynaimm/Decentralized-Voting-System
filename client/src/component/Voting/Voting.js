@@ -203,9 +203,9 @@ export default class Voting extends Component {
     return (
       <div className="container-item">
         <div className="candidate-info">
-          <h2>
-            {candidate.header} <small>#{candidate.id}</small>
-          </h2>
+          <p className="candidate_info">
+            {candidate.header} <p className="slogan_info">"{candidate.slogan}"</p>
+          </p>
         </div>
         <div className="vote-btn-container">
           <button
@@ -239,6 +239,7 @@ export default class Voting extends Component {
          
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         <div className="electionpage">
+        <div className="under2"></div>
           {!this.state.isElStarted && !this.state.isElEnded ? (
             <NotInit isAdmin={this.state.isAdmin}/>
           ) : this.state.isElStarted && !this.state.isElEnded ? (
@@ -264,9 +265,7 @@ export default class Voting extends Component {
                       </div>
                     </div>
                   ) : (
-                    <div className="container-item info">
-                      <center>Go ahead and cast your vote.</center>
-                    </div>
+                    null
                   )
                 ) : (
                   <div className="container-item attention">

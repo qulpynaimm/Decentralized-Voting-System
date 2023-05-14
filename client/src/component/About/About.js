@@ -3,10 +3,12 @@ import React, { Component } from "react";
 import Line from './white_line.svg'
 
 import "./About.css";
+import Navbar from "../Navbar/Navigation";
 class About extends Component {
     render(){
   return (
     <div className="about1">
+      <Navbar></Navbar>
       <div className="vector-parent">
         <img className="white_line" alt="" src={Line} />
         <div className="about2">About</div>

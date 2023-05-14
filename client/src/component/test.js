@@ -5,7 +5,7 @@ const Test = () => {
  
   const fetchData = async () => { 
     try { 
-      const response = await fetch('http://laravel.election/api/v1/index'); 
+      const response = await fetch('https://k4p72wppjc3ujwfpxw7sdf54e40fsrko.lambda-url.us-east-1.on.aws/api/v1/index'); 
       const jsonData = await response.json(); 
       console.log(jsonData); 
       setData(jsonData); 

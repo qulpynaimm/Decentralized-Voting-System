@@ -120,17 +120,17 @@ export default class AddCandidate extends Component {
     return (
       <>
         <NavbarAdmin />
-        <div className="add-candidate-page">
-        <div className="container-main-addCandidate">
+        <div className="container-main">
           <h2>Add a new candidate</h2>
-          <h3>Total candidates: {this.state.candidateCount}</h3>
-          <div className="container-item-addCandidate">
+          <small>Total candidates: {this.state.candidateCount}</small>
+          <div className="container-item">
             <form className="form">
               <label className={"label-ac"}>
-                Full Name
+                Header
                 <input
+                  className={"input-ac"}
                   type="text"
-                  placeholder="eg. Aruzhan Amanova"
+                  placeholder="eg. Marcus"
                   value={this.state.header}
                   onChange={this.updateHeader}
                 />
@@ -140,7 +140,7 @@ export default class AddCandidate extends Component {
                 <input
                   className={"input-ac"}
                   type="text"
-                  placeholder="eg. I will..."
+                  placeholder="eg. It is what it is"
                   value={this.state.slogan}
                   onChange={this.updateSlogan}
                 />
@@ -158,7 +158,6 @@ export default class AddCandidate extends Component {
           </div>
         </div>
         {loadAdded(this.state.candidates)}
-        </div>
       </>
     );
   }
@@ -170,8 +169,7 @@ export function loadAdded(candidates) {
         <div className="container-list success">
           <div
             style={{
-              radius: "10px",
-              maxHeight: "25px",
+              maxHeight: "21px",
               overflow: "auto",
             }}
           >
@@ -183,24 +181,22 @@ export function loadAdded(candidates) {
     );
   };
   return (
-    <div className="container-main-addCandidate" style={{ borderTop: "1px solid", color: "black"}}>
-      <div className="container-item info"
-           style={{
-             width: "800px",
-           }}>
+    <div className="container-main" style={{ borderTop: "1px solid" }}>
+      <div className="container-item info">
         <center>Candidates List</center>
       </div>
       {candidates.length < 1 ? (
-        <div className="container-item alert"
-             style={{
-               width: "800px",
-             }}>>
+        <div className="container-item alert">
           <center>No candidates added.</center>
         </div>
       ) : (
-        <div style={{
-          width: "800px",
-        }}>>
+        <div
+          className="container-item"
+          style={{
+            display: "block",
+            backgroundColor: "#DDFFFF",
+          }}
+        >
           {candidates.map(renderAdded)}
         </div>
       )}

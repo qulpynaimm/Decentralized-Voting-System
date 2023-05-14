@@ -8,12 +8,14 @@ import Icon3 from './icon3.png';
 import Icon4 from './icon4.png';
 import Icon5 from './icon5.png';
 import Icon6 from './icon6.png';
+import Navbar from "../Navbar/Navigation";
 
 
 class Features extends Component {
     render(){
     return (
       <div className="features">
+        <Navbar></Navbar>
         <div className="vector-parent">
           <img className="line" alt="" src={Line} />
           <div className="features1">Features</div>
