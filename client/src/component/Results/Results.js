@@ -99,7 +99,9 @@ export default class Result extends Component {
       return (
         <>
           {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-          <center>Loading Web3, accounts, and contract...</center>
+          <div className="results-page">
+          <center style={{ padding:"25px", color: "white" }}>Loading Web3, accounts, and contract...</center>
+          </div>
         </>
       );
     }
@@ -107,8 +109,7 @@ export default class Result extends Component {
     return (
       <>
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-        <br />
-        <div>
+        <div className="results-page">
           {!this.state.isElStarted && !this.state.isElEnded ? (
             <NotInit />
           ) : this.state.isElStarted && !this.state.isElEnded ? (
@@ -182,18 +183,18 @@ export function displayResults(candidates) {
   return (
     <>
       {candidates.length > 0 ? (
-        <div className="container-main">{displayWinner(candidates)}</div>
+        <div className="container-main-results">{displayWinner(candidates)}</div>
       ) : null}
-      <div className="container-main" style={{ borderTop: "1px solid" }}>
+      <div className="container-main-results" style={{ borderTop: "1px solid" }}>
         <h2>Results</h2>
-        <small>Total candidates: {candidates.length}</small>
+        <h4>Total candidates: {candidates.length}</h4>
         {candidates.length < 1 ? (
-          <div className="container-item attention">
+          <div className="container-item-results attention-results">
             <center>No candidates.</center>
           </div>
         ) : (
           <>
-            <div className="container-item">
+            <div className="container-item-results">
               <table>
                 <tr>
                   <th>Id</th>
@@ -202,12 +203,6 @@ export function displayResults(candidates) {
                 </tr>
                 {candidates.map(renderResults)}
               </table>
-            </div>
-            <div
-              className="container-item"
-              style={{ border: "1px solid black" }}
-            >
-              <center>That is all.</center>
             </div>
           </>
         )}

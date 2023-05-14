@@ -196,7 +196,9 @@ export default class Registration extends Component {
       return (
         <>
           {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-          <center>Loading Web3, accounts, and contract...</center>
+          <div className="registration-page">
+          <center style={{fontSize:"20px"}}>Loading Web3, accounts, and contract...</center>
+          </div>
         </>
       );
     }
@@ -204,7 +206,9 @@ export default class Registration extends Component {
       <>
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         {!this.state.isElStarted && !this.state.isElEnded ? (
-          <NotInit />
+            <div className="registration-page-not-init">
+            <NotInit/>
+            </div>
         ) : (
           <>
           <div className="registration-page">

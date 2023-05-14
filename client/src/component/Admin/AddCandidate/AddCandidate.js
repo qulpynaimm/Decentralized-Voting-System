@@ -105,7 +105,9 @@ export default class AddCandidate extends Component {
       return (
         <>
           {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-          <center>Loading Web3, accounts, and contract...</center>
+          <div className="add-candidate-page" style={{padding:"3%"}}>
+            <center>Loading Web3, accounts, and contract...</center>
+          </div>
         </>
       );
     }
@@ -194,7 +196,7 @@ export function loadAdded(candidates) {
         <div className="container-item alert"
              style={{
                width: "800px",
-             }}>>
+             }}>
           <center>No candidates added.</center>
         </div>
       ) : (

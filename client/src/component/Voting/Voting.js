@@ -229,7 +229,9 @@ export default class Voting extends Component {
       return (
         <>
           {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-          <center>Loading Web3, accounts, and contract...</center>
+          <div className="electionpage">
+          <center style={{ padding:"25px", color: "white" }}>Loading Web3, accounts, and contract...</center>
+          </div>
         </>
       );
     }
