@@ -140,7 +140,9 @@ export default class Home extends Component {
       return (
         <>
           <Navbar />
-          <center>Loading Web3, accounts, and contract...</center>
+          <div className="admin-page-error">
+            <center style={{padding:"30px"}}>Loading Web3, accounts, and contract...</center>
+          </div>
         </>
       );
     }
@@ -157,7 +159,7 @@ export default class Home extends Component {
         <div className="buttons">
           <div className="buttons-child"  />
           <div className="buttons-item"  />
-          <NavLink to="/registration">
+          <NavLink to="/Registration">
            <b className="reg">REGISTER</b>
           </NavLink>
           <b className="read-more">READ MORE</b>
@@ -195,14 +197,14 @@ export default class Home extends Component {
         this.registerElection(data);
       };
       return (
-        <div>
+        <div className="admin-page">
           <form onSubmit={handleSubmit(onSubmit)}>
             {!this.state.elStarted & !this.state.elEnded ? (
-              <div className="container-main">
+              <div className="container-main-admin">
                 {/* about-admin */}
                 <div className="about-admin">
-                  <h3>About Admin</h3>
-                  <div className="container-item center-items">
+                  <h2>About Admin</h2>
+                  <div className="container-item-admin center-items">
                     <div>
                       <label className="label-home">
                         Full Name{" "}
@@ -260,7 +262,7 @@ export default class Home extends Component {
                 {/* about-election */}
                 <div className="about-election">
                   <h3>About Election</h3>
-                  <div className="container-item center-items">
+                  <div className="container-item-admin center-items">
                     <div>
                       <label className="label-home">
                         Election Title{" "}
@@ -289,7 +291,8 @@ export default class Home extends Component {
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div>
+
             ) : null}
             <StartEnd
               elStarted={this.state.elStarted}

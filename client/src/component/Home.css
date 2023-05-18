@@ -11,7 +11,7 @@
   margin-left: 7px;
   margin-right: 7px;
   padding: 1em;
-  min-width: 300px;
+  min-width: 700px;
 }
 .input-home,
 .label-home {
@@ -90,7 +90,7 @@
 .slogan {
   position: absolute;
   left: 100px;
-  top: 70px;  
+  top: 70px;
   width: 658px;
   height: 1118px;
   background-size: cover;
@@ -102,6 +102,125 @@
   height: 1024px;
   font-size: 25px;
   color: white;
-  font-family: "DM Serif Display";
+  font-family: "DM Serif Display", serif;
   overflow: hidden;;
+}
+.admin-page-error{
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  font-family: Poppins, serif;
+}
+.admin-page{
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  font-family: Poppins, serif;
+}
+.container-main-admin{
+  height: auto;
+  padding: 3%;
+  margin: 11px;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  overflow: auto;
+}
+.container-main-admin-candidate{
+  height: auto;
+  margin: 11px;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  overflow: auto;
+}
+.container-item-admin{
+  transition: ease all 0.5s;
+  width: 770px;
+  padding: 10px;
+  margin: 10px auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  overflow: auto;
+}
+.form {
+  width: fit-content;
+  margin: 5px;
+  padding: 7px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: auto;
+}
+input {
+  background-color: black;
+  border: none;
+  border-bottom: 2px solid white;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  transition: border-bottom-color 0.2s ease-in-out;
+}
+
+.attention-admin
+ {
+  border: 1px solid #ccab00;
+  margin-top: 0px;
+  margin-bottom: 11px ;
+  background-color: black;
+}
+.btn-start-admin{
+  background-color: #015fc7;
+  border-radius: 10px;
+  position: relative;
+  top: 0;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  width: 15%;
+  font-size: 25px;
+}
+
+@media all and (max-width: 1020px) {
+  .container-item-admin {
+    width: 999px;
+  }
+}
+@media all and (max-width: 900px) {
+  .container-item-admin {
+    width: 800px;
+    display: block;
+  }
+}
+@media all and (max-width: 850px) {
+  .container-item-admin {
+    width: 700px;
+  }
+}
+@media all and (max-width: 750px) {
+  .container-item-admin {
+    width: 600px;
+  }
+}
+@media all and (max-width: 650px) {
+  .container-item-admin {
+    width: 400px;
+  }
+}
+@media all and (max-width: 400px) {
+  .container-item-admin {
+    width: 300px;
+  }
 }

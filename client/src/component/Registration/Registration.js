@@ -186,7 +186,7 @@ export default class Registration extends Component {
         message: 'Thank you for registering to vote in our election!',
       })
     };
-    fetch('https://k4p72wppjc3ujwfpxw7sdf54e40fsrko.lambda-url.us-east-1.on.aws/api/v1/email', requestOptions)
+    fetch('https://qqs6f2qtlqjanfvf2uaxyijyea0yldid.lambda-url.us-east-1.on.aws/api/v1/email', requestOptions)
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.log(error));
@@ -196,7 +196,9 @@ export default class Registration extends Component {
       return (
         <>
           {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-          <center>Loading Web3, accounts, and contract...</center>
+          <div className="registration-page">
+          <center style={{fontSize:"20px"}}>Loading Web3, accounts, and contract...</center>
+          </div>
         </>
       );
     }
@@ -204,7 +206,9 @@ export default class Registration extends Component {
       <>
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         {!this.state.isElStarted && !this.state.isElEnded ? (
-          <NotInit />
+            <div className="registration-page-not-init">
+            <NotInit/>
+            </div>
         ) : (
           <>
           <div className="registration-page">
