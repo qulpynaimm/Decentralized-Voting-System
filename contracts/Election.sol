@@ -1,18 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.21 <0.9.0;
 
-interface INFT{
-    function balanceOf(address account) external view returns (uint256);
-}
-
 contract Election {
     address public admin;
     uint256 candidateCount;
     uint256 voterCount;
     bool start;
     bool end;
-    INFT public nftContract;
-
 
     constructor() public {
         // Initilizing default values
@@ -21,8 +15,6 @@ contract Election {
         voterCount = 0;
         start = false;
         end = false;
-        nftContract = INFT(0x912861271Fe04A9c3ADc99F96d51CE899c47ad45);
-
     }
 
     function getAdmin() public view returns (address) {
@@ -128,7 +120,6 @@ contract Election {
         string phone;
         uint age;
         string id;
-        bool isHasNFT;
         bool isVerified;
         bool hasVoted;
         bool isRegistered;
@@ -145,7 +136,6 @@ contract Election {
                 phone: _phone,
                 age: _age,
                 id: _id,
-                isHasNFT: false,
                 hasVoted: false,
                 isVerified: false,
                 isRegistered: true
@@ -155,10 +145,15 @@ contract Election {
         voterCount += 1;
     }
 
-    function checkNFT(address voterAddress) public {
-        bool hasNFT = (nftContract.balanceOf(voterAddress) > 0);
-        voterDetails[voterAddress].isHasNFT = hasNFT;
-    }
+    function updateVoterDetails(string memory _name, string memory _phone, uint _age, string memory _id) public {
+    require(voterDetails[msg.sender].isRegistered, "You are not a registered voter.");
+
+    voterDetails[msg.sender].name = _name;
+    voterDetails[msg.sender].phone = _phone;
+    voterDetails[msg.sender].age = _age;
+    voterDetails[msg.sender].id = _id;
+}
+
 
     // Verify voter
     function verifyVoter(bool _verifedStatus, address voterAddress)

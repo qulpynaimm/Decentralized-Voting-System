@@ -39,10 +39,10 @@ export default class Voting extends Component {
         address: undefined,
         name: null,
         phone: null,
-        isHasNFT: false,
         hasVoted: false,
         isVerified: false,
         isRegistered: false,
+        isHasNFT: false,
       },
       showCandidates: false,
     };
@@ -135,13 +135,13 @@ export default class Voting extends Component {
       
       const hasNFT = await this.checkNFT();
       if (hasNFT === true){       
-        //alert("You have the required NFT to continue."); 
         this.setState({
           currentVoter: {
             address: voter.voterAddress,
             name: voter.name,
             phone: voter.phone,
             hasVoted: voter.hasVoted,
+            isVerified: voter.isVerified,
             isRegistered: voter.isRegistered,
             isHasNFT: true,
           },
@@ -154,6 +154,7 @@ export default class Voting extends Component {
             name: voter.name,
             phone: voter.phone,
             hasVoted: voter.hasVoted,
+            isVerified: voter.isVerified,
             isRegistered: voter.isRegistered,
             isHasNFT: false,
           },

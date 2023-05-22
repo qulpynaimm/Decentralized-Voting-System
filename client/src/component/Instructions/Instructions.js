@@ -13,7 +13,7 @@ class Instructions extends Component {
     render(){
   return (
     <div className="steps">
-      <Navbar></Navbar>
+      <Navbar/>
       <div className="follow-these-easy-steps-parent">
         <div className="follow-these-easy">Follow these easy steps:</div>
         <div className="steps1">

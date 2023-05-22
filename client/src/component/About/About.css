@@ -1,13 +1,13 @@
 .white_line {
     position: absolute;
     top: 18px;
-    left: 162px;
-    width: 7px;
-    height: 668px;
+    left: 13.5%;
+    width: 1%;
+    height: 65vh;
   }
   .about2 {
     position: absolute;
-    top: 490px;
+    top: 67%;
     left: 0;
     transform: rotate(-90deg);
     transform-origin: 0 0;
@@ -17,29 +17,64 @@
   }
   .an-online-voting-container {
     position: absolute;
-    top: 21px;
-    left: 221px;
-    font-size: 40px;
+    top: 5%;
+    left: 19%;
+    font-size: 2.0vw;
     text-align: justify;
     display: inline-block;
-    width: 924px;
+    width: 60%;
   }
   .vector-parent {
     position: absolute;
-    top: 178px;
-    left: 147px;
-    width: 1145px;
-    height: 668px;
+    top: 20%;
+    left: 7%;
+    width: 86%;
+    height: 80vh;
   }
   .about1 {
     position: relative;
     background-color: black;
     width: 100%;
-    height: 1024px;
+    min-height: 100vh;
     overflow: hidden;
     text-align: left;
-    font-size: 115px;
+    font-size: 13vh;
     color: white;
     font-family: "DM Serif Display";
   }
+  @media all and (max-width: 768px) {
+    .white_line {
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
   
+    .about2 {
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transform-origin: 0 0;
+      font-size: 3.5vw;
+    }
+  
+    .an-online-voting-container {
+      top: 15%;
+      left: 5%;
+      font-size: 5vw;
+      width: 90%;
+    }
+  
+    .vector-parent {
+      top: 30%;
+      left: 5%;
+      width: 90%;
+      height: auto;
+    }
+  
+    .about1 {
+      font-size: 7vw;
+    }
+  }
