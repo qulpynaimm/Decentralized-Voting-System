@@ -12,6 +12,7 @@ import "./Registration.css";
 // Contract
 import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
+import {errors} from "ethers";
 
 
 
@@ -160,7 +161,7 @@ export default class Registration extends Component {
   };*/
   handleClick = async () => {
     await this.submitVoterDetails();
-    await this.registerAsVoter();
+    // await this.registerAsVoter();
 
   }
   
@@ -188,8 +189,17 @@ export default class Registration extends Component {
     };
     fetch('https://qqs6f2qtlqjanfvf2uaxyijyea0yldid.lambda-url.us-east-1.on.aws/api/v1/email', requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+      .then(async data => {
+        console.log(data);
+
+        if (data.message === "We have e-mailed your link!"){
+          await this.registerAsVoter()
+        }
+      })
+        .catch(error => {
+          console.error(error);
+          alert("Use corporate email ");
+        });
   };
   render() {
     if (!this.state.web3) {
