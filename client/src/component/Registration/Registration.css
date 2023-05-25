@@ -7,7 +7,7 @@ input {
   background-color: black;
   border: none;
   border-bottom: 2px solid white;
-  width: 120%;
+  width: 100%;
   color: white;
   font-size: 20px;
   padding: 12px;
@@ -24,12 +24,7 @@ input:focus {
   padding: 0.5em;
   display: block;
 }
-/*.btn-add {*/
-/*  width: 50%;*/
-/*  padding: 1em;*/
-/*  float: inline-end;*/
-/*  margin: 1em;*/
-/*}*/
+
 .note {
   width: 90%;
   padding: 11px;
@@ -55,85 +50,81 @@ input:focus {
 .account-address,
 .registration-form {
   position: absolute;
-  top: 107px;
-  left: 85px;
+  top: 10%;
+  left: 0%;
   display: inline-block;
-  width: 686px;
+  width: 90%;
 }
+
 .account-address {
-  top: 0;
-  left: 0;
   letter-spacing: 0.02em;
-  width: 234.99px;
-  height: 23.61px;
+  width: 100%;
+  height: auto;
 }
 .account-address-parent,
 .age-parent,
 .barcode-parent,
 .full-name {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 515px;
-  height: 60.01px;
+  width: 100%;
+  height: auto;
 }
 .age-parent,
 .barcode-parent,
 .full-name {
-  top: 300.81px;
+  top: 15em;
 }
 .barcode-parent,
 .full-name {
-  top: 401.07px;
+  top: 20em;
 }
 .full-name {
   top: 0;
   letter-spacing: 0.02em;
   display: inline-block;
-  width: 159.22px;
-  height: 23.53px;
+  width: 40%;
+  height: 200px;
 }
 .full-name-parent,
 .phone-number {
-  position: absolute;
-  top: 100.26px;
-  left: 0;
-  width: 515px;
-  height: 60.01px;
+  position: relative;
+  top: 5.5em;
+  width: 100%;
+  height: auto;
 }
 .phone-number {
   top: 0;
   letter-spacing: 0.02em;
   display: inline-block;
-  width: 214.13px;
-  height: 24.43px;
+  width: 35%;
+  height: 24.43px ;
 }
 .group-container,
 .phone-number-parent,
 .rectangle-div {
-  position: absolute;
-  top: 200.55px;
+  position: relative;
+  top: 125px;
   left: 0;
-  width: 515px;
-  height: 60.01px;
+  width: 100%;
+  height: auto;
 }
 .group-container,
 .rectangle-div {
   top: 0;
-  height: 461.08px;
+  height: auto;
 }
 .rectangle-div {
   border-radius: 20px;
   background-color: #015fc7;
-  height: 80px;
-  left: 50px;
+  padding: 1em;
+  margin: 1em 0;
 }
 button.register {
   background-color: #015fc7;
   border-radius: 20px;
   position: relative;
-  top: 0;
-  left: 50px;
+  top: -3em;
+  left: 0;
   letter-spacing: 0.02em;
   display: inline-block;
   width: 100%;
@@ -143,34 +134,34 @@ button.register {
 }
 .group-frame,
 .rectangle-parent {
-  position: absolute;
+  position: relative;
   top: 0;
-  left: -24px;
-  width: 515px;
-  height: 57px;
+  left: 0px;
+  width: 100%;
+  height: auto;
 }
 .group-frame {
-  top: 526px;
+  top: 11em;
   font-size: 32px;
 }
 .group-wrapper,
 .registration-page-inner {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 515px;
-  height: 583px;
+  width: 68%;
+  height: auto;
 }
 .registration-page-inner {
-  top: 251px;
-  left: 124px;
+  top: 12em;
+  left: 7em;
   font-size: 20px;
 }
 .registration-page-not-init{
   position: absolute;
   background-color: black;
   width: 100%;
-  height: 1024px;
+  height: 100vh;
   overflow: hidden;
   cursor: pointer;
 }
@@ -178,26 +169,34 @@ button.register {
   position: absolute;
   background-color: black;
   width: 100%;
-  height: 1024px;
+  height: 100vh;
   overflow: hidden;
   cursor: pointer;
   text-align: left;
-  font-size: 64px;
+  font-size: 3.5vw;
   color: white;
   font-family: Poppins;
 }
 .validation-note {
-  position: absolute;
-  width: 365px;
-  height: 128px;
-  left: 80px;
-  top: 600px;
-
+  position: relative;
+  width: 90%;
+  max-width: 365px;
+  height: auto;
+  margin: 2em 0;
   font-family: 'DM Serif Display', serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
   text-align: justify;
-
+}
+@media all and (max-width: 768px) {
+  .registration-form {
+    left: 2%;
+    width: 96%;
+  }
+  
+  .rectangle-div {
+    padding: 0.5em;
+  }
 }

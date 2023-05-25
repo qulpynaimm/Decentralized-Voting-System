@@ -135,7 +135,6 @@ export default class Voting extends Component {
       
       const hasNFT = await this.checkNFT();
       if (hasNFT === true){       
-        //alert("You have the required NFT to continue."); 
         this.setState({
           currentVoter: {
             address: voter.voterAddress,
