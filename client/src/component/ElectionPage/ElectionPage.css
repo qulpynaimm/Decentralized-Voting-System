@@ -4,7 +4,7 @@
   top: 150px;
   left: 800px;
   font-size: 42px;
-  color: black;
+  color: white;
 }
 .div1,
 .election_name {
@@ -100,7 +100,7 @@
 }
 .electionpage {
   position: relative;
-  background-color: white;
+  background-color: black;
   width: 100%;
   height: 1000px;
   overflow: hidden;

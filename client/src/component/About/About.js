@@ -103,17 +103,13 @@ class About extends Component {
         <div className="about2">About</div>
         <div className="an-online-voting-container">
           <p className="an-online-voting"> 
-          An online voting system that will replace the 
-          old ballot sytem or paper system. Over the time 
-          we have utilized the required technology in every
-          sector to improve efficiency and save the extra
-          resources. But the voting system is still very 
-          expensive and requires a bigger workforce.
-          The system is slower and still not completely 
-          tamper proof. We bring the system that is safe,
-          reliable and solve the modern issues like higher
-          reachability of the booth, crowd free voting, 
-          inexpensive, faster results and others.
+          This is a decentralized e-voting platform that is designed to overcome the 
+          limitations of centralized voting systems such as traditional paper ballot 
+          system, e-voting platform and ATM machine. The main idea is that authentication and verification of users 
+          is carried out through an individual ID and as a result of authorization, 
+          each person gets NFT tokens from NFT Minting dApp. The voting event is created by deploying 
+          smart contracts in an EVM environment. Only a person with NFT tokens will be eligible 
+          to vote.
           </p>
         </div>
       </div>

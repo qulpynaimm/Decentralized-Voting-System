@@ -99,10 +99,8 @@ class Instructions extends Component {
           <div className="register-yourself-by">
             Register yourself by filling the required informations </div>
           <img className="icon8" alt="" src={Icon8} />
-          <div className="signin-as-user">Signin as user</div>
-          <img className="icon10" alt="" src={Icon10} />
-          <div className="go-to-vote">Go to vote option on dashboard</div>
-          <div className="give-security-key">Give security key</div>
+          <div className="signin-as-user">Check your email, get confirmed and get the NFT from the NFT Minting dApp.</div>
+          <div className="go-to-vote">Go to Voting page of the website.</div>
           <img className="icon11" alt="" src={Icon11} />
           <div className="vote-your-candidate">
             Vote your candidate and submit

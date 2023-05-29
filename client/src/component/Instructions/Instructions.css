@@ -44,14 +44,6 @@
   left: 143px;
 }
 
-.icon10 {
-  top: 401px;
-  left: 8px;
-  width: 88px;
-  height: 88px;
-  object-fit: cover;
-}
-
 .give-security-key,
 .go-to-vote {
   position: absolute;
@@ -59,13 +51,10 @@
   left: 143px;
 }
 
-.give-security-key {
-  top: 417px;
-}
 
 .icon11 {
   position: absolute;
-  top: 529px;
+  top: 401px;
   left: 0;
   width: 116px;
   height: 93px;
@@ -75,7 +64,7 @@
 .steps1,
 .vote-your-candidate {
   position: absolute;
-  top: 548px;
+  top: 417px;
   left: 143px;
 }
 
