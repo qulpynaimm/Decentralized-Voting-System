@@ -6,7 +6,7 @@
 
 .icon9 {
   position: absolute;
-  top: 266px;
+  top: 333px;
   left: 5px;
   width: 94px;
   height: 94px;
@@ -30,7 +30,7 @@
 
 .icon8 {
   position: absolute;
-  top: 133px;
+  top: 167px;
   left: 6px;
   width: 93px;
   height: 93px;
@@ -40,22 +40,22 @@
 .icon10,
 .signin-as-user {
   position: absolute;
-  top: 152px;
+  top: 180px;
   left: 143px;
 }
 
 .give-security-key,
 .go-to-vote {
   position: absolute;
-  top: 285px;
+  top: 355px;
   left: 143px;
 }
 
 
 .icon11 {
   position: absolute;
-  top: 401px;
-  left: 0;
+  top: 500px;
+  left: -5px;
   width: 116px;
   height: 93px;
   overflow: hidden;
@@ -64,7 +64,7 @@
 .steps1,
 .vote-your-candidate {
   position: absolute;
-  top: 417px;
+  top: 520px;
   left: 143px;
 }
 
