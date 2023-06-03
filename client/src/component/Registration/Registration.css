@@ -122,8 +122,9 @@ input:focus {
 button.register {
   background-color: #015fc7;
   border-radius: 20px;
+  border-color: #015fc7;
   position: relative;
-  top: -3em;
+  top: 0.7em;
   left: 0;
   letter-spacing: 0.02em;
   display: inline-block;
@@ -131,6 +132,18 @@ button.register {
   height: 80px;
   font-size: 35px;
   color: white;
+}
+button.register:hover:not(.disabled) {
+  transform: scale(1.05);
+}
+
+button.register:active:not(.disabled) {
+  transform: scale(0.9);
+}
+.disabled2 {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .group-frame,
 .rectangle-parent {

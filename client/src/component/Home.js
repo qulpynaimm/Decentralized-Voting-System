@@ -162,7 +162,9 @@ export default class Home extends Component {
           <NavLink to="/Registration">
            <b className="reg">REGISTER</b>
           </NavLink>
+          <NavLink to="/About">
           <b className="read-more">READ MORE</b>
+          </NavLink>
         </div>
         
       </div>

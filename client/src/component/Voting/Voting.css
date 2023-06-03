@@ -1,70 +1,46 @@
-h2,
-h3 {
-  padding: 11px 1px;
-  margin: auto;
-  text-align: left;
-}
-small {
-  color: grey;
-  font-size: medium;
-}
-p {
-  margin: 1px;
-  padding: 3px;
-}
-.contact {
-  color: grey;
-}
-.slogan {
-  color: #ccab00;
-  font-size: 1.5em;
-  margin: 7px 0px;
-}
-.discription {
-  padding: 11px;
-  padding-left: 1px;
-  text-align: justify;
-  max-height: 111px;
-  overflow: auto;
-  line-height: 1.5em;
-}
 
 .candidate-info {
   transition: ease all 0.5s;
   width: 91%;
   float: left;
   margin-left: 1%;
-  padding: 17px;
+  padding: 1vw;
   background-color: #c4c4c4;
-  border-radius: 11px;
+  border-radius: 1vw;
 }
+
 .vote-btn-container {
   transition: ease all 0.5s;
-  height: 100%;
   width: 17%;
   float: right;
   align-items: center;
   justify-content: center;
-  padding: 17px;
+  padding: 1vw;
 }
 .vote-bth {
   width: 100%;
-  height: 55px;
-  font-size: 100%;
-  background-color:  #007bff;
+  height: 5vh;
+  font-size: 2.7vh;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5%;
-  padding: 10px 20px;
+  padding: 1vh 1vw;
   cursor: pointer;
   transition: all 0.3s ease;
-
 }
+
 @media all and (max-width: 900px) {
   .candidate-info,
   .vote-btn-container {
     width: 100%;
-    height: 100%;
+    float: none;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .electionpage {
+    font-size: 3.5vw;
   }
 }
 
@@ -84,18 +60,123 @@ p {
 }
 
 .election_info:hover {
-  background-color: #007bff; /* change background color on hover */
-  color: #fff; /* change text color on hover */
-  border-color: #007bff; /* change border color on hover */
-  cursor: pointer; /* change cursor on hover to indicate clickable */
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  cursor: pointer;
 }
 
 .election_info:focus {
-  outline: none; /* remove outline on focus to improve accessibility */
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* add box shadow on focus */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .election_info:active {
-  background-color: #0069d9; /* change background color on active state */
-  border-color: #0062cc; /* change border color on active state */
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.elections {
+  position: absolute;
+  top: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.3vw;
+  color: white;
+}
+
+.div1,
+.election_name {
+  position: absolute;
+  top: 2.3vh;
+  left: 1vw;
+  font-size: 1.7vw;
+  text-align: center;
+  font-style: unset;
+  text-transform: capitalize;
+}
+
+.candidate_info {
+  font-size: 2vw;
+  font-family: Roboto;
+  color: black;
+}
+
+.slogan_info {
+  font-size: 1.3vw;
+  font-style: italic;
+}
+
+.div1 {
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  top: 2.5vh;
+  left: 45vw;
+}
+
+.election_info {
+  position: absolute;
+  top: 25vh;
+  left: 24.5vw;
+  border-radius: 5px;
+  width: 50vw;
+  height: 8vh;
+  padding: 1vw;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  
+}
+
+.electionpage {
+  position: relative;
+  background-color: black;
+  width: 100%;
+  min-height: 100vh;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.3vw;
+  color: black;
+  font-family: "DM Serif Display";
+  justify-content: center;
+  display: inline-block;
+  overflow: auto;
+}
+
+.dropdown-header {
+  padding: 1vw;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.dropdown-header i {
+  float: right;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 10vw;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-option {
+  padding: 1vw;
+  cursor: pointer;
+}
+
+.dropdown-option:hover {
+  background-color: #f1f1f1;
+}
+
+.under {
+  margin-top: 5%;
+}
+
+.under2 {
+  margin-top: 7%;
 }

@@ -3,6 +3,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Paytone+One:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+/* General styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 .label-home {
   padding: 0.5em;
 }
@@ -28,7 +38,7 @@
   font-family: "Paytone One";
 }
 .be-a-part-container {
-  position: absolute;
+  position: relative;
   width: 99.7%;
   top: -9px;
   left: 0;
@@ -38,7 +48,7 @@
 }
 .buttons-child,
 .buttons-item {
-  position: absolute;
+  position: relative;
   top: 20px;
   border-radius: 14px;
   width: 234px;
@@ -51,18 +61,29 @@
 }
 .buttons-item {
   left: 292px;
+  top: -38px;
   background-color: #e2eef4;
 }
 .read-more {
   position: absolute;
   top: 34px;
-  left: 330px;
+  left: 325px;
+  color: #0160c8;
 }
 .reg{
   position: absolute;
   top: 34px;
-  left: 70px;
+  left: 67px;
   color: white;
+}
+.buttons-child:hover,
+.buttons-item:hover {
+  transform: scale(1.05);
+}
+
+.buttons-child:active,
+.buttons-item:active {
+  transform: scale(0.9);
 }
 .buttons,
 .frame {
@@ -80,7 +101,7 @@
 }
 .frame {
   width: 45.83%;
-  top: 400px;
+  top: 350px;
   right: 2.99%;
   left: 47%;
   height: 305px;
@@ -88,9 +109,8 @@
   font-family: "Paytone One";
 }
 .slogan {
-  position: absolute;
+  position: relative;
   left: 100px;
-  top: 70px;
   width: 658px;
   height: 1118px;
   background-size: cover;
@@ -106,7 +126,7 @@
   overflow: hidden;;
 }
 .admin-page-error{
-  position: absolute;
+  position: relative;
   background-color: black;
   width: 100%;
   height: 1024px;
@@ -118,7 +138,7 @@
   font-family: Poppins, serif;
 }
 .admin-page{
-  position: absolute;
+  position: relative;
   background-color: black;
   width: 100%;
   min-height: 100vh;
@@ -184,13 +204,22 @@ input {
 }
 .btn-start-admin{
   background-color: #015fc7;
-  border-radius: 10px;
+  border-color: #015fc7;
+  color: white;
+  border-radius: 20px;
   position: relative;
   top: 0;
   letter-spacing: 0.02em;
   display: inline-block;
   width: 15%;
-  font-size: 25px;
+  font-size: 28px;
+}
+.btn-start-admin:hover {
+  transform: scale(1.1);
+}
+
+.btn-start-admin:active {
+  transform: scale(0.9);
 }
 
 @media all and (max-width: 1020px) {

@@ -18,7 +18,7 @@ import { abi, NFT_CONTRACT_ADDRESS } from "./constant";
 
 // CSS
 import "./Voting.css";
-import "../ElectionPage/ElectionPage.css"
+//import "../ElectionPage/ElectionPage.css"
 import { isElStarted } from "../Home";
 
 export default class Voting extends Component {

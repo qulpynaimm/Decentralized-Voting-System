@@ -7,7 +7,6 @@ import Voting from "./component/Voting/Voting";
 import Results from "./component/Results/Results";
 import Registration from "./component/Registration/Registration";
 import AddCandidate from "./component/Admin/AddCandidate/AddCandidate";
-import Verification from "./component/Admin/Verification/Verification";
 import Features from "./component/Features/Features";
 import About from "./component/About/About";
 import Instructions from "./component/Instructions/Instructions";
@@ -29,7 +28,6 @@ export default class App extends Component {
             <Route exact path="/voting" component={Voting} />
             <Route exact path="/results" component={Results} />
             <Route exact path="/registration" component={Registration} />
-            <Route exact path="/verification" component={Verification} />
             <Route exact path="/features" component={Features} />
             <Route exact path="/about" component={About} />
             <Route exact path="/instructions" component={Instructions} />

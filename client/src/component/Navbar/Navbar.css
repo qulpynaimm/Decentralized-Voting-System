@@ -53,7 +53,7 @@ a {
 .connect-wallet {
   position: absolute;
   top: 2px;
-  left: 0;
+  left: 10px;
   display: inline-block;
   width: 225px;
   height: 41px;
@@ -65,13 +65,13 @@ a {
 .connect-wallet-button {
   top: 0;
   left: 0;
-  border-radius: 6px;
+  border-radius: 7px;
   background-color: #015fc7;
   border: none;
   position: fixed;
   top: 25px;
   left: 1550px;
-  width: 220px;
+  width: 230px;
   height: 44px;
   cursor: pointer;
   text-align: center;
@@ -106,154 +106,4 @@ a {
   z-index: 999;
 }
 
-
-.elections {
-  position: absolute;
-  top: 150px;
-  left: 800px;
-  font-size: 42px;
-  color: white;
-}
-.div1,
-.election_name {
-  position: absolute;
-  top: 23px;
-  left: 16px;
-  font-size: 32px;
-  text-align: center;
-  font-style:unset;
-  text-transform: capitalize;
-}
-.candidate_info{
-  font-size: 35px;
-  font-family: Roboto;
-  color: black;
-}
-.slogan_info{
-  font-size: 20px;
-  font-style: italic;
-}
-.div1 {
-  font-size: 25px;
-  text-transform: uppercase;
-  top: 25px;
-  left: 903px;
-}
-.election_info {
-  position: absolute;
-  top: 250px;
-  left: 469px;
-  border-radius: 5px;
-  background-color: #c4c4c4;
-  width: 1067px;
-  height: 83px;
-  padding: 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
-  cursor: pointer;
-}
-.div2 {
-  position: absolute;
-  top: 15px;
-  left: 907px;
-}
-.chhatishgarh-state-election-parent {
-  position: absolute;
-  top: 418px;
-  left: 169px;
-  border-radius: 5px;
-  background-color: #c4c4c4;
-  width: 1067px;
-  height: 63px;
-}
-.div3 {
-  position: absolute;
-  top: 15px;
-  left: 903px;
-}
-.bangluru-state-election-parent {
-  position: absolute;
-  top: 516px;
-  left: 169px;
-  border-radius: 5px;
-  background-color: #c4c4c4;
-  width: 1067px;
-  height: 63px;
-}
-.div4,
-.gurgaon-municipal-corporation {
-  position: absolute;
-  top: 13px;
-  left: 16px;
-}
-.div4 {
-  left: 903px;
-}
-.gurgaon-municipal-corporation-parent {
-  position: absolute;
-  top: 614px;
-  left: 169px;
-  border-radius: 5px;
-  background-color: #c4c4c4;
-  width: 1067px;
-  height: 63px;
-}
-.x2522708 {
-  position: absolute;
-  top: 1px;
-  left: 0;
-  display: inline-block;
-  width: 194px;
-  height: 41px;
-}
-.electionpage {
-  position: relative;
-  background-color: black;
-  width: 100%;
-  height: 1000px;
-  overflow: hidden;
-  cursor: pointer;
-  text-align: left;
-  font-size: 25px;
-  color: black;
-  font-family: "DM Serif Display";
-  justify-content: center;
-  display: inline-block;
-}
-
-.dropdown-header {
-  padding: 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
-  cursor: pointer;
-}
-
-.dropdown-header i {
-  float: right;
-}
-
-.dropdown-options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 160px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
-
-.dropdown-option {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.dropdown-option:hover {
-  background-color: #f1f1f1;
-}
-.under{
-  margin-top: 5%;
-}
-.under2{
-  margin-top: 3%;
-}
 

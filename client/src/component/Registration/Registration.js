@@ -277,17 +277,20 @@ export default class Registration extends Component {
               </div>
               </div>
               <div className="group-frame">
-              <div className="rectangle-parent">
-                <div className="rectangle-div" />
-                <button className="register"
-                   disabled={
-                       this.state.voterPhone.length !== 12 ||
-                       this.state.voterAge < 18 ||
-                       this.state.voterID.length !== 6 ||
-                       this.state.currentVoter.isRegistered
-                   }
-                onClick={this.handleClick} >Register</button>
-              </div>
+                <button className={`register ${this.state.voterPhone.length !== 12 ||
+                                               this.state.voterAge < 18 ||
+                                               this.state.voterID.length !== 6 ||
+                                               this.state.currentVoter.isRegistered ? 'disabled2' : ''}`}
+                disabled={
+                  this.state.voterPhone.length !== 12 ||
+                  this.state.voterAge < 18 ||
+                  this.state.voterID.length !== 6 ||
+                  this.state.currentVoter.isRegistered
+                }
+                onClick={this.handleClick}
+                >
+                  Register
+                  </button>
 
             </div>
 

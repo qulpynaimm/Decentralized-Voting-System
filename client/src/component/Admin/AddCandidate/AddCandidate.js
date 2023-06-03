@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-//111
 import Navbar from "../../Navbar/Navigation";
 import NavbarAdmin from "../../Navbar/NavigationAdmin";
-
 import getWeb3 from "../../../getWeb3";
 import Election from "../../../contracts/Election.json";
-
 import AdminOnly from "../../AdminOnly";
-
 import "./AddCandidate.css";
 
 export default class AddCandidate extends Component {
@@ -22,6 +18,7 @@ export default class AddCandidate extends Component {
       slogan: "",
       candidates: [],
       candidateCount: undefined,
+      showCandidates: false, // New state variable
     };
   }
 
@@ -86,9 +83,11 @@ export default class AddCandidate extends Component {
       );
     }
   };
+
   updateHeader = (event) => {
     this.setState({ header: event.target.value });
   };
+
   updateSlogan = (event) => {
     this.setState({ slogan: event.target.value });
   };
@@ -100,17 +99,24 @@ export default class AddCandidate extends Component {
     window.location.reload();
   };
 
+  toggleCandidates = () => {
+    this.setState((prevState) => ({
+      showCandidates: !prevState.showCandidates,
+    }));
+  };
+
   render() {
     if (!this.state.web3) {
       return (
         <>
           {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
-          <div className="add-candidate-page" style={{padding:"3%"}}>
+          <div className="add-candidate-page" style={{ padding: "3%" }}>
             <center>Loading Web3, accounts, and contract...</center>
           </div>
         </>
       );
     }
+
     if (!this.state.isAdmin) {
       return (
         <>
@@ -119,93 +125,105 @@ export default class AddCandidate extends Component {
         </>
       );
     }
+
     return (
       <>
         <NavbarAdmin />
         <div className="add-candidate-page">
-        <div className="container-main-addCandidate">
-          <h2>Add a new candidate</h2>
-          <h3>Total candidates: {this.state.candidateCount}</h3>
-          <div className="container-item-addCandidate">
-            <form className="form">
-              <label className={"label-ac"}>
-                Full Name
-                <input
-                  type="text"
-                  placeholder="eg. Aruzhan Amanova"
-                  value={this.state.header}
-                  onChange={this.updateHeader}
-                />
-              </label>
-              <label className={"label-ac"}>
-                Slogan
-                <input
-                  className={"input-ac"}
-                  type="text"
-                  placeholder="eg. I will..."
-                  value={this.state.slogan}
-                  onChange={this.updateSlogan}
-                />
-              </label>
-              <button
-                className="btn-add"
-                disabled={
-                  this.state.header.length < 3 || this.state.header.length > 21
-                }
-                onClick={this.addCandidate}
-              >
-                Add
-              </button>
-            </form>
+          <div className="container-main-addCandidate">
+            <h2>Add a new candidate</h2>
+            <h3>Total candidates: {this.state.candidateCount}</h3>
+            <div className="container-item-addCandidate">
+              <form className="form">
+                <label className={"label-ac"}>
+                  Full Name
+                  <input
+                    type="text"
+                    placeholder="eg. Aruzhan Amanova"
+                    value={this.state.header}
+                    onChange={this.updateHeader}
+                  />
+                </label>
+                <label className={"label-ac"}>
+                  Slogan
+                  <input
+                    className={"input-ac"}
+                    type="text"
+                    placeholder="eg. I will..."
+                    value={this.state.slogan}
+                    onChange={this.updateSlogan}
+                  />
+                </label>
+                <button
+                  className={`btn-add ${
+                    this.state.header.length < 3 || this.state.header.length > 21
+                      ? "disabled"
+                      : ""
+                  }`}
+                  disabled={
+                    this.state.header.length < 3 || this.state.header.length > 21
+                  }
+                  onClick={this.addCandidate}
+                >
+                  Add
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
-        {loadAdded(this.state.candidates)}
+          {this.loadAdded()}
         </div>
       </>
     );
   }
-}
-export function loadAdded(candidates) {
-  const renderAdded = (candidate) => {
+
+  loadAdded() {
+    const { candidates, showCandidates } = this.state;
+
     return (
-      <>
-        <div className="container-list success">
-          <div
-            style={{
-              radius: "10px",
-              maxHeight: "25px",
-              overflow: "auto",
-            }}
-          >
-            {candidate.id}. <strong>{candidate.header}</strong>:{" "}
-            {candidate.slogan}
+      <div
+        className="container-main-addCandidate"
+        style={{ borderTop: "1px solid", color: "black" }}
+      >
+        <div
+          className="container-item info"
+          style={{
+            width: "800px",
+          }}
+          onClick={this.toggleCandidates}
+        >
+          <center className="candidate-list-style">Candidates List:</center>
+        </div>
+        {showCandidates && (
+          <div style={{ width: "800px" }}>
+            {candidates.length < 1 ? (
+              <div
+                className="container-item alert"
+                style={{
+                  width: "800px",
+                }}
+              >
+                <center>No candidates added.</center>
+              </div>
+            ) : (
+              candidates.map((candidate) => (
+                <div
+                  className="container-list success"
+                  key={candidate.id}
+                  style={{
+                    left: "20px",
+                    overflow: "hidden",
+                    borderRadius: "10px",
+                    maxHeight: "50px",
+                    width: "750px",
+                  }}
+                >
+                  <strong>{candidate.header}</strong>: {candidate.slogan}
+                </div>
+              ))
+            )}
           </div>
-        </div>
-      </>
-    );
-  };
-  return (
-    <div className="container-main-addCandidate" style={{ borderTop: "1px solid", color: "black"}}>
-      <div className="container-item info"
-           style={{
-             width: "800px",
-           }}>
-        <center>Candidates List</center>
+        )}
       </div>
-      {candidates.length < 1 ? (
-        <div className="container-item alert"
-             style={{
-               width: "800px",
-             }}>
-          <center>No candidates added.</center>
-        </div>
-      ) : (
-        <div style={{
-          width: "800px",
-        }}>>
-          {candidates.map(renderAdded)}
-        </div>
-      )}
-    </div>
-  );
+    );
+  }
 }
