@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
   text-align: center;
@@ -108,8 +107,25 @@ code {
 .info {
   background-color: #ddffff;
 }
+.info:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  cursor: pointer;
+}
+
+.info:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.info:active {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
 .attention {
   background-color: #fffbdd;
+  margin-top: 5%;
 }
 .success {
   background-color: white;

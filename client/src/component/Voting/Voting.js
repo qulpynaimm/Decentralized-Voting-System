@@ -115,7 +115,7 @@ export default class Voting extends Component {
           .candidateDetails(i - 1)
           .call();
         this.state.candidates.push({
-          id: candidate.candidateId,
+          id: i+1,
           header: candidate.header,
           slogan: candidate.slogan,
         });
@@ -329,7 +329,6 @@ export default class Voting extends Component {
               <div className="container-item attention">
                 <center>
                   <h3>The Election ended.</h3>
-                  <br />
                   <Link
                     to="/Results"
                     style={{ color: "black", textDecoration: "underline" }}

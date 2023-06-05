@@ -17,10 +17,10 @@ a {
 .how-to-vote2,
 .add-candidate {
   position: absolute;
-  top: 77px;
+  top: 74px;
   left: 350px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 31px;
 }
 
 .go-to-vote,
@@ -38,7 +38,7 @@ a {
 
 .topmain,
 .image-icon {
-  top: 5%;
+  top: 4%;
 }
 
 .topmain {
@@ -63,14 +63,12 @@ a {
 }
 
 .connect-wallet-button {
-  top: 0;
-  left: 0;
   border-radius: 7px;
   background-color: #015fc7;
   border: none;
   position: fixed;
-  top: 25px;
-  left: 1550px;
+  top: 23px;
+  left: 1650px;
   width: 230px;
   height: 44px;
   cursor: pointer;
@@ -81,7 +79,7 @@ a {
 .image-icon {
   position: absolute;
   width: 5.76%;
-  top: 10%;
+  top: 8%;
   right: 89.93%;
   left: 7.31%;
   max-width: 1000%;
@@ -97,7 +95,7 @@ a {
   background-color: #000;
   width: 100%;
   top: 0;
-  height: 80px;
+  height: 85px;
   overflow: hidden;
   text-align: left;
   font-size: 20px;
@@ -107,3 +105,84 @@ a {
 }
 
 
+
+.connect-wallet-button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  color: white;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 999;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
+}
+
+.nav-item a {
+  font-family: "Paytone One", serif;
+  font-size: 20px;
+  color: white;
+}
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .connect-wallet-button {
+    top: 10px;
+    right: 10px;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .navigation {
+    height: auto;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+
+  .nav-item:last-child {
+    margin-bottom: 0;
+  }
+}

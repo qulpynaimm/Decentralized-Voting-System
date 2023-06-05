@@ -11,6 +11,7 @@
   font-family: Poppins;
   font-size: 30px;
 }
+
 .add-candidate-page{
   position: absolute;
   background-color: black;
@@ -42,13 +43,9 @@ input {
   padding: z;
   transition: border-bottom-color 0.2s ease-in-out;
 }
-/*.input-ac {*/
-/*  margin: 0.5em;*/
-/*  margin-left: 0;*/
-/*  padding: 1em;*/
-/*  display: block;*/
-/*  width: fit-content;*/
-/*}*/
+.under3{
+  margin-top: 2%;
+}
 .label-ac {
   width: 800px;
   display: block;

@@ -200,7 +200,7 @@ export default class Home extends Component {
       };
       return (
         <div className="admin-page">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className="admin_home_form" onSubmit={handleSubmit(onSubmit)}>
             {!this.state.elStarted & !this.state.elEnded ? (
               <div className="container-main-admin">
                 {/* about-admin */}
@@ -312,11 +312,3 @@ export default class Home extends Component {
     return <AdminHome />;
   };
 }
-export const elStarted = localStorage.getItem("ElectStart");
-export const elEnded = localStorage.getItem("ElectEnd");
-
-export const isElStarted = localStorage.getItem("isElectStart");
-export const isElEnded = localStorage.getItem("IsElectEnd");
-
-export const isAdmin = localStorage.getItem("isAdmin");
-

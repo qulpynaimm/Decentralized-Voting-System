@@ -18,7 +18,7 @@ export default class AddCandidate extends Component {
       slogan: "",
       candidates: [],
       candidateCount: undefined,
-      showCandidates: false, // New state variable
+      showCandidates: false,
     };
   }
 
@@ -68,7 +68,7 @@ export default class AddCandidate extends Component {
           .candidateDetails(i)
           .call();
         this.state.candidates.push({
-          id: candidate.candidateId,
+          id: i+1,
           header: candidate.header,
           slogan: candidate.slogan,
         });
@@ -132,7 +132,9 @@ export default class AddCandidate extends Component {
         <div className="add-candidate-page">
           <div className="container-main-addCandidate">
             <h2>Add a new candidate</h2>
+            <div className="under3">
             <h3>Total candidates: {this.state.candidateCount}</h3>
+            </div>            
             <div className="container-item-addCandidate">
               <form className="form">
                 <label className={"label-ac"}>
@@ -154,6 +156,7 @@ export default class AddCandidate extends Component {
                     onChange={this.updateSlogan}
                   />
                 </label>
+                <div className="under3">
                 <button
                   className={`btn-add ${
                     this.state.header.length < 3 || this.state.header.length > 21
@@ -167,6 +170,7 @@ export default class AddCandidate extends Component {
                 >
                   Add
                 </button>
+                </div>
               </form>
             </div>
           </div>
@@ -217,7 +221,7 @@ export default class AddCandidate extends Component {
                     width: "750px",
                   }}
                 >
-                  <strong>{candidate.header}</strong>: {candidate.slogan}
+                  {candidate.id}. <strong>{candidate.header}</strong>: <italic>{candidate.slogan}</italic>
                 </div>
               ))
             )}

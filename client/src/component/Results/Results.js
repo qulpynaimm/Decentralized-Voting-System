@@ -65,19 +65,18 @@ export default class Result extends Component {
       const end = await this.state.ElectionInstance.methods.getEnd().call();
       this.setState({ isElEnded: end });
 
-      // Loadin Candidates detials
-      for (let i = 1; i <= this.state.candidateCount; i++) {
+      // Loading Candidates detials
+      for (let i = 0; i < this.state.candidateCount; i++) {
         const candidate = await this.state.ElectionInstance.methods
-          .candidateDetails(i - 1)
+          .candidateDetails(i)
           .call();
         this.state.candidates.push({
-          id: candidate.candidateId,
+          id: i + 1,
           header: candidate.header,
           slogan: candidate.slogan,
           voteCount: candidate.voteCount,
         });
       }
-
       this.setState({ candidates: this.state.candidates });
 
       // Admin account and verification
@@ -138,47 +137,58 @@ export default class Result extends Component {
 
 function displayWinner(candidates) {
   const getWinner = (candidates) => {
-    // Returns an object having maxium vote count
-    let maxVoteRecived = 0;
-    let winnerCandidate = [];
+    let maxVoteReceived = 0;
+    let winnerCandidates = [];
     for (let i = 0; i < candidates.length; i++) {
-      if (candidates[i].voteCount > maxVoteRecived) {
-        maxVoteRecived = candidates[i].voteCount;
-        winnerCandidate = [candidates[i]];
-      } else if (candidates[i].voteCount === maxVoteRecived) {
-        winnerCandidate.push(candidates[i]);
+      if (candidates[i].voteCount > maxVoteReceived) {
+        maxVoteReceived = candidates[i].voteCount;
+        winnerCandidates = [candidates[i]];
+      } else if (candidates[i].voteCount === maxVoteReceived) {
+        winnerCandidates.push(candidates[i]);
       }
     }
-    return winnerCandidate;
+    return winnerCandidates;
   };
+
   const renderWinner = (winner) => {
     return (
       <div className="container-winner">
         <div className="winner-info">
           <p className="winner-tag">Winner!</p>
-          <h2> {winner.header}</h2>
+          <h2>{winner.header}</h2>
           <p className="winner-slogan">{winner.slogan}</p>
         </div>
         <div className="winner-votes">
-          <div className="votes-tag">Total Votes: </div>
+          <div className="votes-tag">Total Votes:</div>
           <div className="vote-count">{winner.voteCount}</div>
         </div>
       </div>
     );
   };
-  const winnerCandidate = getWinner(candidates);
-  return <>{winnerCandidate.map(renderWinner)}</>;
+
+  const winnerCandidates = getWinner(candidates);
+
+  return <div className="container-main-results">{winnerCandidates.map(renderWinner)}</div>;
 }
 
 export function displayResults(candidates) {
   const renderResults = (candidate) => {
     return (
-      <tr>
+      <tr key={candidate.id}>
         <td>{candidate.id}</td>
         <td>{candidate.header}</td>
         <td>{candidate.voteCount}</td>
       </tr>
     );
+  };
+  const downloadResults = () => {
+    const csvContent = "data:text/csv;charset=utf-8," + candidates.map(candidate => [candidate.id, candidate.header, candidate.slogan, candidate.voteCount].join(',')).join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "voting_results.csv");
+    document.body.appendChild(link);
+    link.click();
   };
   return (
     <>
@@ -186,24 +196,34 @@ export function displayResults(candidates) {
         <div className="container-main-results">{displayWinner(candidates)}</div>
       ) : null}
       <div className="container-main-results" style={{ borderTop: "1px solid" }}>
-        <h2>Results</h2>
-        <h4>Total candidates: {candidates.length}</h4>
+        <h2>RESULTS</h2>
         {candidates.length < 1 ? (
           <div className="container-item-results attention-results">
             <center>No candidates.</center>
           </div>
         ) : (
           <>
-            <div className="container-item-results">
-              <table>
-                <tr>
-                  <th>Id</th>
-                  <th>Candidate</th>
-                  <th>Votes</th>
-                </tr>
-                {candidates.map(renderResults)}
+            <table className="results-table">
+                <thead>
+                  <tr>
+                    <th>Candidate ID</th>
+                    <th>Header</th>
+                    <th>Slogan</th>
+                    <th>Vote Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {candidates.map((candidate) => (
+                    <tr key={candidate.id}>
+                      <td>{candidate.id}</td>
+                      <td>{candidate.header}</td>
+                      <td>{candidate.slogan}</td>
+                      <td>{candidate.voteCount}</td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
-            </div>
+              <button className="download-button animation-effect" onClick={downloadResults}>Download Results</button>
           </>
         )}
       </div>
