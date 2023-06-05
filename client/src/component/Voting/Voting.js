@@ -115,7 +115,7 @@ export default class Voting extends Component {
           .candidateDetails(i - 1)
           .call();
         this.state.candidates.push({
-          id: i+1,
+          id: candidate.candidateId,
           header: candidate.header,
           slogan: candidate.slogan,
         });

@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 .label-home {
   padding: 0.5em;
@@ -115,6 +115,9 @@ body {
   height: 1118px;
   background-size: cover;
   transform: scaleZ(10);
+}
+.home{
+  overflow: auto;
 }
 .header-home {
   position: relative;

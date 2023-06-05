@@ -150,6 +150,7 @@ export default class Home extends Component {
     <> 
         {this.state.isAdmin ? <NavbarAdmin /> : <Navbar />}
         {!this.state.isAdmin ? (
+          <div className="home">
         <div className="header-home">
       <div className="frame">
         <div className="be-a-part-container">
@@ -169,6 +170,7 @@ export default class Home extends Component {
         
       </div>
       <img className="slogan" alt="" src={Slogan}/>
+      </div>
       </div>
         ) : null }
         {this.state.isAdmin ? (

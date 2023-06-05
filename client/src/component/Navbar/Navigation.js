@@ -109,7 +109,7 @@ export default function Navbar() {
         <div className="how-to-vote">How to Vote?</div>
       </NavLink>
       <NavLink to="/voting">
-        <div className="how-to-vote2">Go to VOTE</div>
+        <div className="how-to-vote2">Voting</div>
       </NavLink>
       <i onClick={() => setOpen(!open)} className="fas fa-bars burger-menu"></i>
       </div>

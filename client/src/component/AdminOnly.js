@@ -6,12 +6,15 @@ const AdminOnly = (props) => {
           style={{
               padding: '50px',
               backgroundColor: 'black',
-              height: '640px'
+              height: '100vh'
           }}
       >
         <div className="container-item attention" style={{ borderColor: "tomato" }}>
           <center>
-            <div style={{ margin: "17px" }}>
+            <div style={{ 
+              height: '100%',
+              width: '100%'
+               }}>
               <h1>{props.page}</h1>
             </div>
             <p>Admin access only.</p>

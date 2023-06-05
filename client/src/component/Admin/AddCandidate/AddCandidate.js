@@ -195,7 +195,7 @@ export default class AddCandidate extends Component {
           }}
           onClick={this.toggleCandidates}
         >
-          <center className="candidate-list-style">Candidates List:</center>
+          <center className="candidate-list-style">Candidates List</center>
         </div>
         {showCandidates && (
           <div style={{ width: "800px" }}>
