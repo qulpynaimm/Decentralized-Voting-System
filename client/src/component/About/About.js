@@ -29,6 +29,8 @@ class About extends Component {
         isHasNFT: false,
       },
       showCandidates: false,
+      animatedLines: [],
+      
     };
   }
 
@@ -87,7 +89,30 @@ class About extends Component {
     if (this.state.account === admin) {
       this.setState({ isAdmin: true });
     }
+    const lines = [
+      "This is a decentralized e-voting platform that is designed to",
+      "overcome the limitations of centralized voting systems such",
+      "as traditional paper ballot system, e-voting platform and ",
+      "ATM machine. The main idea is that authentication and ",
+      "verification of users is carried out through an individual" ,
+      "ID and as a result of authorization, each person gets NFT",
+      "tokens from NFT Minting dApp. The voting event is created",
+      "by deploying smart contracts in an EVM environment. Only",
+      "a person with NFT tokens will be eligible to vote.",
+    ];
+    this.animateLines(lines);
   };
+
+  animateLines = (lines) => {
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        this.setState((prevState) => ({
+          animatedLines: [...prevState.animatedLines, line],
+        }));
+      }, index * 1950); // Delay each line by 1 second (1000ms)
+    });
+  };
+
 
   render() {
     return (
@@ -98,13 +123,11 @@ class About extends Component {
           <div className="about2">About</div>
           <div className="an-online-voting-container">
             <p className="an-online-voting">
-              This is a decentralized e-voting platform that is designed to overcome the
-              limitations of centralized voting systems such as traditional paper ballot
-              system, e-voting platform and ATM machine. The main idea is that authentication and verification of users
-              is carried out through an individual ID and as a result of authorization,
-              each person gets NFT tokens from NFT Minting dApp. The voting event is created by deploying
-              smart contracts in an EVM environment. Only a person with NFT tokens will be eligible
-              to vote.
+              {this.state.animatedLines.map((line, index) => (
+                <span key={index} className="animated-text"> {line}
+
+                </span>
+              ))}
             </p>
           </div>
         </div>

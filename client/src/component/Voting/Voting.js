@@ -266,7 +266,9 @@ export default class Voting extends Component {
                       </div>
                     </div>
                   ) : (
-                    null
+                    <div className="container-item info">
+                      <center>Go ahead and cast your vote.</center>
+                    </div>
                   )
                 ) : (
                   <div className="container-item attention">
